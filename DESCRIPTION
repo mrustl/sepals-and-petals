@@ -1,9 +1,8 @@
-Package: AppifyrIris
+Package: SepalsAndPetals
 Type: Package
 Title: Showcase appifyr
 Version: 42.0.0
-Author: Reto Wyss
-Maintainer: Reto Wyss <reto.wyss.ch@gmail.com>
+Authors@R: person("Reto", "Wyss", role = c("aut", "cre"), email = "reto.wyss.ch@gmail.com")
 Description: This packages showcases the appifyr package.
 License: MIT + file LICENSE
 Encoding: UTF-8

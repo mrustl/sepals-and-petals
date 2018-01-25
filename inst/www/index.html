@@ -9,14 +9,13 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="author" content="Reto Wyss" />
 
 
 <title>Sepals and Petals</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -176,12 +175,12 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Appifyr Iris Demo</a>
+      <a class="navbar-brand" href="index.html">Sepals and Petals</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Sepals and Petals</a>
+  <a href="index.html">Example 1</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -197,13 +196,10 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Sepals and Petals</h1>
-<h4 class="author"><em>Reto Wyss</em></h4>
 
 </div>
 
 
-<div id="scatter-plot-of-sepals-and-petals" class="section level1">
-<h1>Scatter Plot of Sepals and Petals</h1>
 <pre class="r"><code>library(appifyr)
 
 # Create inputs as dropdown
@@ -212,11 +208,11 @@ dd &lt;- inp_dropdown(names(iris)[1:4], width = 6)
 # &quot;sepals_and_petals&quot; is a function in this package
 appify(f = &quot;sepals_and_petals&quot;, inps = list(x = dd, y = dd))</code></pre>
 <div>
-<form id="form-scQLJYRebEOEjmrNitfvvqzOvCeHClAN" class="well">
+<form id="form-kyQlWQoitVIcJFAQrEOoANVCZZkAypeh" class="well">
 <fieldset class="row">
 <div class="col-sm-6">
 <label>x</label>
-<select id="x-scQLJYRebEOEjmrNitfvvqzOvCeHClAN" class="form-group form-control">
+<select id="x-kyQlWQoitVIcJFAQrEOoANVCZZkAypeh" class="form-group form-control">
 <option value="Sepal.Length">Sepal.Length</option>
 <option value="Sepal.Width">Sepal.Width</option>
 <option value="Petal.Length">Petal.Length</option>
@@ -225,7 +221,7 @@ appify(f = &quot;sepals_and_petals&quot;, inps = list(x = dd, y = dd))</code></p
 </div>
 <div class="col-sm-6">
 <label>y</label>
-<select id="y-scQLJYRebEOEjmrNitfvvqzOvCeHClAN" class="form-group form-control">
+<select id="y-kyQlWQoitVIcJFAQrEOoANVCZZkAypeh" class="form-group form-control">
 <option value="Sepal.Length">Sepal.Length</option>
 <option value="Sepal.Width">Sepal.Width</option>
 <option value="Petal.Length">Petal.Length</option>
@@ -233,18 +229,18 @@ appify(f = &quot;sepals_and_petals&quot;, inps = list(x = dd, y = dd))</code></p
 </select>
 </div>
 </fieldset>
-<button id="submit-scQLJYRebEOEjmrNitfvvqzOvCeHClAN" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-kyQlWQoitVIcJFAQrEOoANVCZZkAypeh" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-scQLJYRebEOEjmrNitfvvqzOvCeHClAN"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-scQLJYRebEOEjmrNitfvvqzOvCeHClAN").click(function(){
-  var req = $("#target-scQLJYRebEOEjmrNitfvvqzOvCeHClAN").rplot(
+<div style="height: 600px;" class="well" id="target-kyQlWQoitVIcJFAQrEOoANVCZZkAypeh"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-kyQlWQoitVIcJFAQrEOoANVCZZkAypeh").click(function(){
+  var req = $("#target-kyQlWQoitVIcJFAQrEOoANVCZZkAypeh").rplot(
     "sepals_and_petals",
     {x : (function(){
-  var x = $('#x-scQLJYRebEOEjmrNitfvvqzOvCeHClAN').val();
+  var x = $('#x-kyQlWQoitVIcJFAQrEOoANVCZZkAypeh').val();
   return(isNaN() ? x : parseFloat(x));
 })(),
 y : (function(){
-  var x = $('#y-scQLJYRebEOEjmrNitfvvqzOvCeHClAN').val();
+  var x = $('#y-kyQlWQoitVIcJFAQrEOoANVCZZkAypeh').val();
   return(isNaN() ? x : parseFloat(x));
 })()}
   );
@@ -252,9 +248,6 @@ y : (function(){
     alert("Error: " + req.responseText);
   });
 });</script>
-</div>
-<pre class="r"><code># creating the app now with 
-# appifyr::build_app(from_rmd = FALSE)</code></pre>
 </div>
 
 <div class="appifyr-footer">

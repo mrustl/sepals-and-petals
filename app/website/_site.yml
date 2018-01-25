@@ -1,13 +1,13 @@
 name: "appifyr"
 output_dir: "../../inst/www/"
 navbar:
-  title: "Appifyr Iris Demo"
+  title: "Sepals and Petals"
   left:
-    - text: "Sepals and Petals"
+    - text: "Example 1"
       href: index.html
 output:
   html_document:
-    theme: cosmo
+    theme: united
     highlight: textmate
     include:
       after_body: "html/after_body.html"

@@ -1,0 +1,9 @@
+url: //retowyss.github.io/sepals-and-petals
+
+authors:
+  Reto Wyss:
+    href: https://reto-wyss.com
+
+template:
+  params:
+    bootswatch: cosmo
