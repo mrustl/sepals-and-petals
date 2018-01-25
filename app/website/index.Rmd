@@ -1,0 +1,21 @@
+---
+title: "Sepals and Petals"
+author: "Reto Wyss"
+---
+
+# Scatter Plot of Sepals and Petals
+
+```{r}
+library(appifyr)
+
+# Create inputs as dropdowns, the bootstrap grids is 12 units wide, so I choose
+# both dropdown to be 6 units in width.
+dd <- inp_dropdown(names(iris)[1:4], width = 6)
+
+# "sepals_and_petals" is a function in this package
+appify(f = "sepals_and_petals", inps = list(x = dd, y = dd))
+
+# creating the app now with 
+# appifyr::build_app(from_rmd = FALSE)
+```
+

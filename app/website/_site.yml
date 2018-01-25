@@ -1,0 +1,17 @@
+name: "appifyr"
+output_dir: "../../inst/www/"
+navbar:
+  title: "Appifyr Iris Demo"
+  left:
+    - text: "Sepals and Petals"
+      href: index.html
+output:
+  html_document:
+    theme: cosmo
+    highlight: textmate
+    include:
+      after_body: "html/after_body.html"
+      in_header: "html/in_header.html"
+      before_body: "html/before_body.html"
+    css: "css/app_styles.css"
+exclude: ["html"]
