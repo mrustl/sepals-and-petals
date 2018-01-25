@@ -2,5 +2,6 @@
 
 This packages showcases the appifyr package.
 
-You can install and the code locally or try the hosted version on the [OpenCPU Cloud Server](http://retowyss.ocpu.io/sepals-and-petals/www/)
+1. You can install and run the code locally or 
+2. try the hosted version on the [OpenCPU Cloud Server](http://retowyss.ocpu.io/sepals-and-petals/www/)
  
