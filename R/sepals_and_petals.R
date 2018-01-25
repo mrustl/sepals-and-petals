@@ -1,5 +1,8 @@
 #' Plot Sepals and Petals in Iris
 #'
+#' @description This function can plot any of the numeric columns in the iris
+#'     dataset against each other.
+#'
 #' @param x value in \code{names(iris)[1:4]}
 #' @param y value in \code{names(iris)[1:4]}
 #'

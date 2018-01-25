@@ -15,7 +15,8 @@ sepals_and_petals(x, y)
 ggplot object
 }
 \description{
-Plot Sepals and Petals in Iris
+This function can plot any of the numeric columns in the iris
+    dataset against each other.
 }
 \examples{
 sepals_and_petals("Sepal.Length", "Petal.Length")

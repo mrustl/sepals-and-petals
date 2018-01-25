@@ -208,11 +208,11 @@ dd &lt;- inp_dropdown(names(iris)[1:4], width = 6)
 # &quot;sepals_and_petals&quot; is a function in this package
 appify(f = &quot;sepals_and_petals&quot;, inps = list(x = dd, y = dd))</code></pre>
 <div>
-<form id="form-kyQlWQoitVIcJFAQrEOoANVCZZkAypeh" class="well">
+<form id="form-zodHiRTUBMnoHceJIVkVSnVxPECddXZA" class="well">
 <fieldset class="row">
 <div class="col-sm-6">
 <label>x</label>
-<select id="x-kyQlWQoitVIcJFAQrEOoANVCZZkAypeh" class="form-group form-control">
+<select id="x-zodHiRTUBMnoHceJIVkVSnVxPECddXZA" class="form-group form-control">
 <option value="Sepal.Length">Sepal.Length</option>
 <option value="Sepal.Width">Sepal.Width</option>
 <option value="Petal.Length">Petal.Length</option>
@@ -221,7 +221,7 @@ appify(f = &quot;sepals_and_petals&quot;, inps = list(x = dd, y = dd))</code></p
 </div>
 <div class="col-sm-6">
 <label>y</label>
-<select id="y-kyQlWQoitVIcJFAQrEOoANVCZZkAypeh" class="form-group form-control">
+<select id="y-zodHiRTUBMnoHceJIVkVSnVxPECddXZA" class="form-group form-control">
 <option value="Sepal.Length">Sepal.Length</option>
 <option value="Sepal.Width">Sepal.Width</option>
 <option value="Petal.Length">Petal.Length</option>
@@ -229,18 +229,18 @@ appify(f = &quot;sepals_and_petals&quot;, inps = list(x = dd, y = dd))</code></p
 </select>
 </div>
 </fieldset>
-<button id="submit-kyQlWQoitVIcJFAQrEOoANVCZZkAypeh" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-zodHiRTUBMnoHceJIVkVSnVxPECddXZA" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-kyQlWQoitVIcJFAQrEOoANVCZZkAypeh"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-kyQlWQoitVIcJFAQrEOoANVCZZkAypeh").click(function(){
-  var req = $("#target-kyQlWQoitVIcJFAQrEOoANVCZZkAypeh").rplot(
+<div style="height: 600px;" class="well" id="target-zodHiRTUBMnoHceJIVkVSnVxPECddXZA"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-zodHiRTUBMnoHceJIVkVSnVxPECddXZA").click(function(){
+  var req = $("#target-zodHiRTUBMnoHceJIVkVSnVxPECddXZA").rplot(
     "sepals_and_petals",
     {x : (function(){
-  var x = $('#x-kyQlWQoitVIcJFAQrEOoANVCZZkAypeh').val();
+  var x = $('#x-zodHiRTUBMnoHceJIVkVSnVxPECddXZA').val();
   return(isNaN() ? x : parseFloat(x));
 })(),
 y : (function(){
-  var x = $('#y-kyQlWQoitVIcJFAQrEOoANVCZZkAypeh').val();
+  var x = $('#y-zodHiRTUBMnoHceJIVkVSnVxPECddXZA').val();
   return(isNaN() ? x : parseFloat(x));
 })()}
   );
