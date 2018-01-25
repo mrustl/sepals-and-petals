@@ -206,18 +206,17 @@ $(document).ready(function () {
 <h1>Scatter Plot of Sepals and Petals</h1>
 <pre class="r"><code>library(appifyr)
 
-# Create inputs as dropdowns, the bootstrap grids is 12 units wide, so I choose
-# both dropdown to be 6 units in width.
+# Create inputs as dropdown
 dd &lt;- inp_dropdown(names(iris)[1:4], width = 6)
 
 # &quot;sepals_and_petals&quot; is a function in this package
 appify(f = &quot;sepals_and_petals&quot;, inps = list(x = dd, y = dd))</code></pre>
 <div>
-<form id="form-BplOmlyUfzSaeRvUMhrEEYgrNMGxOxGq" class="well">
+<form id="form-scQLJYRebEOEjmrNitfvvqzOvCeHClAN" class="well">
 <fieldset class="row">
 <div class="col-sm-6">
 <label>x</label>
-<select id="x-BplOmlyUfzSaeRvUMhrEEYgrNMGxOxGq" class="form-group form-control">
+<select id="x-scQLJYRebEOEjmrNitfvvqzOvCeHClAN" class="form-group form-control">
 <option value="Sepal.Length">Sepal.Length</option>
 <option value="Sepal.Width">Sepal.Width</option>
 <option value="Petal.Length">Petal.Length</option>
@@ -226,7 +225,7 @@ appify(f = &quot;sepals_and_petals&quot;, inps = list(x = dd, y = dd))</code></p
 </div>
 <div class="col-sm-6">
 <label>y</label>
-<select id="y-BplOmlyUfzSaeRvUMhrEEYgrNMGxOxGq" class="form-group form-control">
+<select id="y-scQLJYRebEOEjmrNitfvvqzOvCeHClAN" class="form-group form-control">
 <option value="Sepal.Length">Sepal.Length</option>
 <option value="Sepal.Width">Sepal.Width</option>
 <option value="Petal.Length">Petal.Length</option>
@@ -234,18 +233,18 @@ appify(f = &quot;sepals_and_petals&quot;, inps = list(x = dd, y = dd))</code></p
 </select>
 </div>
 </fieldset>
-<button id="submit-BplOmlyUfzSaeRvUMhrEEYgrNMGxOxGq" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-scQLJYRebEOEjmrNitfvvqzOvCeHClAN" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-BplOmlyUfzSaeRvUMhrEEYgrNMGxOxGq"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-BplOmlyUfzSaeRvUMhrEEYgrNMGxOxGq").click(function(){
-  var req = $("#target-BplOmlyUfzSaeRvUMhrEEYgrNMGxOxGq").rplot(
+<div style="height: 600px;" class="well" id="target-scQLJYRebEOEjmrNitfvvqzOvCeHClAN"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-scQLJYRebEOEjmrNitfvvqzOvCeHClAN").click(function(){
+  var req = $("#target-scQLJYRebEOEjmrNitfvvqzOvCeHClAN").rplot(
     "sepals_and_petals",
     {x : (function(){
-  var x = $('#x-BplOmlyUfzSaeRvUMhrEEYgrNMGxOxGq').val();
+  var x = $('#x-scQLJYRebEOEjmrNitfvvqzOvCeHClAN').val();
   return(isNaN() ? x : parseFloat(x));
 })(),
 y : (function(){
-  var x = $('#y-BplOmlyUfzSaeRvUMhrEEYgrNMGxOxGq').val();
+  var x = $('#y-scQLJYRebEOEjmrNitfvvqzOvCeHClAN').val();
   return(isNaN() ? x : parseFloat(x));
 })()}
   );

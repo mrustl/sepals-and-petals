@@ -19,5 +19,5 @@ Plot Sepals and Petals in Iris
 }
 \examples{
 sepals_and_petals("Sepal.Length", "Petal.Length")
-
+sepals_and_petals("Petal.Length", "Sepal.Length")
 }
