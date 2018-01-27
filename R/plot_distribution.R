@@ -33,9 +33,10 @@ dist_hist <- function(dist_f,
   set.seed(seed = seed)
 
   q <- quo(
-    data.frame(x = invoke(!! sym(dist_f), .args = list(n = !! ns))) %>%
+    data.frame(x = invoke(!! sym(dist_f),
+                          .args = list(n = !! as.numeric(ns)))) %>%
       ggplot(aes(x = x)) +
-      geom_histogram(bins = !! bins) +
+      geom_histogram(bins = !! as.numeric(bins)) +
       invoke(!! sym(theme))
   )
 

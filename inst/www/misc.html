@@ -249,11 +249,11 @@ appify(
   )
 )</code></pre>
 <div>
-<form id="form-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj" class="well">
+<form id="form-GaJUIFtyavpmGvVNsZaCRLudtfNyvFrx" class="well">
 <fieldset class="row">
 <div class="col-sm-4">
 <label>Dist</label>
-<select id="dist_f-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj" class="form-group form-control">
+<select id="dist_f-GaJUIFtyavpmGvVNsZaCRLudtfNyvFrx" class="form-group form-control">
 <option value="rnorm">rnorm</option>
 <option value="runif">runif</option>
 <option value="rcauchy">rcauchy</option>
@@ -261,11 +261,11 @@ appify(
 </div>
 <div class="col-sm-4">
 <label>Sample Size</label>
-<input id="ns-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj" class="form-control" type="number" min="0" max="100"/>
+<input id="ns-GaJUIFtyavpmGvVNsZaCRLudtfNyvFrx" class="form-control" type="number" min="0" max="100"/>
 </div>
 <div class="col-sm-4">
 <label>ggplot Theme</label>
-<select id="theme-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj" class="form-group form-control">
+<select id="theme-GaJUIFtyavpmGvVNsZaCRLudtfNyvFrx" class="form-group form-control">
 <option value="theme_bw">theme_bw</option>
 <option value="theme_classic">theme_classic</option>
 <option value="theme_minimal">theme_minimal</option>
@@ -274,37 +274,37 @@ appify(
 </div>
 <div class="col-sm-4">
 <label>Bins</label>
-<input id="bins-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj" class="form-control" type="number" min="0" max="42"/>
+<input id="bins-GaJUIFtyavpmGvVNsZaCRLudtfNyvFrx" class="form-control" type="number" min="0" max="42"/>
 </div>
 <div class="col-sm-4">
 <label>Seed</label>
-<input id="seed-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj" class="form-control" type="number" min="0" max="100"/>
+<input id="seed-GaJUIFtyavpmGvVNsZaCRLudtfNyvFrx" class="form-control" type="number" min="0" max="100"/>
 </div>
 </fieldset>
-<button id="submit-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-GaJUIFtyavpmGvVNsZaCRLudtfNyvFrx" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj").click(function(){
-  var req = $("#target-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj").rplot(
+<div style="height: 600px;" class="well" id="target-GaJUIFtyavpmGvVNsZaCRLudtfNyvFrx"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-GaJUIFtyavpmGvVNsZaCRLudtfNyvFrx").click(function(){
+  var req = $("#target-GaJUIFtyavpmGvVNsZaCRLudtfNyvFrx").rplot(
     "dist_hist",
     {dist_f : (function(){
-  var x = $('#dist_f-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj').val();
+  var x = $('#dist_f-GaJUIFtyavpmGvVNsZaCRLudtfNyvFrx').val();
   return(isNaN() ? x : parseFloat(x));
 })(),
 ns : (function(){
-  var x = $('#ns-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj').val();
+  var x = $('#ns-GaJUIFtyavpmGvVNsZaCRLudtfNyvFrx').val();
   return(isNaN() ? x : parseFloat(x));
 })(),
 theme : (function(){
-  var x = $('#theme-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj').val();
+  var x = $('#theme-GaJUIFtyavpmGvVNsZaCRLudtfNyvFrx').val();
   return(isNaN() ? x : parseFloat(x));
 })(),
 bins : (function(){
-  var x = $('#bins-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj').val();
+  var x = $('#bins-GaJUIFtyavpmGvVNsZaCRLudtfNyvFrx').val();
   return(isNaN() ? x : parseFloat(x));
 })(),
 seed : (function(){
-  var x = $('#seed-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj').val();
+  var x = $('#seed-GaJUIFtyavpmGvVNsZaCRLudtfNyvFrx').val();
   return(isNaN() ? x : parseFloat(x));
 })()}
   );
