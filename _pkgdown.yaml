@@ -7,3 +7,8 @@ authors:
 template:
   params:
     bootswatch: united
+
+navbar:
+  right:
+    - text: "On ocpu.io"
+      href: http://retowyss.ocpu.io/sepals-and-petals/www/

@@ -3,8 +3,13 @@ output_dir: "../../inst/www/"
 navbar:
   title: "Sepals and Petals"
   left:
-    - text: "Example 1"
+    - text: "Home"
       href: index.html
+    - text: "Input Types"
+      href: input_types.html
+    - text: "Misc"
+      href: misc.html
+
 output:
   html_document:
     theme: united

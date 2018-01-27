@@ -1,5 +1,5 @@
 ---
-title: "Sepals and Petals"
+title: "Appifyr Input Types"
 ---
 
 Welcome to Sepals and Petals! This package's apps are built with [appifyr](github.com/retowyss/appifyr). 

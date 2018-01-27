@@ -20,6 +20,6 @@ This function can plot any of the numeric columns in the iris
 }
 \examples{
 sepals_and_petals("Sepal.Length", "Petal.Length")
-sepals_and_petals("Petal.Length", "Sepal.Length")
-
+# Code
+sepals_and_petals
 }

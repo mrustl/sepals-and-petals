@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Plot Sepals and Petals in Iris — sepals_and_petals • SepalsAndPetals</title>
+<title>Plot Histogram of a Distribution — dist_hist • SepalsAndPetals</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,39 +77,70 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Plot Sepals and Petals in Iris</h1>
+    <h1>Plot Histogram of a Distribution</h1>
     </div>
 
     
-    <p>This function can plot any of the numeric columns in the iris
-    dataset against each other.</p>
+    <p>This function uses non standard evaluation (NSE) to create a
+    plot title.</p>
     
 
-    <pre class="usage"><span class='fu'>sepals_and_petals</span>(<span class='no'>x</span>, <span class='no'>y</span>)</pre>
+    <pre class="usage"><span class='fu'>dist_hist</span>(<span class='no'>dist_f</span>, <span class='kw'>ns</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>theme</span> <span class='kw'>=</span> <span class='st'>"theme_minimal"</span>, <span class='kw'>bins</span> <span class='kw'>=</span> <span class='fl'>30</span>,
+  <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>42</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>value in <code>names(iris)[1:4]</code></p></td>
+      <th>dist_f</th>
+      <td><p>a quoted distribution function: rnorm, runif, rpois, rcauchy</p></td>
     </tr>
     <tr>
-      <th>y</th>
-      <td><p>value in <code>names(iris)[1:4]</code></p></td>
+      <th>ns</th>
+      <td><p>how many numbers should be generated?</p></td>
+    </tr>
+    <tr>
+      <th>theme</th>
+      <td><p>a quoted ggplot theme to be used</p></td>
+    </tr>
+    <tr>
+      <th>bins</th>
+      <td><p>how many bins should be used in the histogram?</p></td>
+    </tr>
+    <tr>
+      <th>seed</th>
+      <td><p>passed to <code>set.seed</code></p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>ggplot object</p>
+    <p>histogram of a sample of samplesize <code>ns</code> from a distribution
+    <code>dist_f</code> using ggplot <code>theme</code></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>sepals_and_petals</span>(<span class='st'>"Sepal.Length"</span>, <span class='st'>"Petal.Length"</span>)</div><div class='img'><img src='sepals_and_petals-1.png' alt='' width='700' height='432.632880098887' /></div><div class='input'><span class='co'># Code</span>
-<span class='no'>sepals_and_petals</span></div><div class='output co'>#&gt; function(x, y) {
-#&gt;   ggplot(datasets::iris, aes_string(x = x, y = y, color = "Species")) +
-#&gt;     geom_point()
+    <pre class="examples"><div class='input'><span class='fu'>dist_hist</span>(<span class='st'>"runif"</span>, <span class='kw'>ns</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>theme</span> <span class='kw'>=</span> <span class='st'>"theme_classic"</span>)</div><div class='img'><img src='dist_hist-1.png' alt='' width='700' height='432.632880098887' /></div><div class='input'><span class='co'># Code</span>
+<span class='no'>dist_hist</span></div><div class='output co'>#&gt; function(dist_f,
+#&gt;                       ns = 1000,
+#&gt;                       theme = "theme_minimal",
+#&gt;                       bins = 30,
+#&gt;                       seed = 42) {
+#&gt;   dist_fs &lt;- c("rnorm", "runif", "rpois", "rcauchy")
+#&gt;   themes &lt;- c("theme_bw", "theme_classic", "theme_minimal", "theme_light")
+#&gt; 
+#&gt;   stopifnot(dist_f %in% dist_fs &amp; theme %in% themes)
+#&gt; 
+#&gt;   set.seed(seed = seed)
+#&gt; 
+#&gt;   q &lt;- quo(
+#&gt;     data.frame(x = invoke(!! sym(dist_f), .args = list(n = !! ns))) %&gt;%
+#&gt;       ggplot(aes(x = x)) +
+#&gt;       geom_histogram(bins = !! bins) +
+#&gt;       invoke(!! sym(theme))
+#&gt;   )
+#&gt; 
+#&gt;   eval_tidy(q) + ggtitle(quo_text(q))
 #&gt; }
 #&gt; &lt;environment: namespace:SepalsAndPetals&gt;</div></pre>
   </div>

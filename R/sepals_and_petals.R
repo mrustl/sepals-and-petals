@@ -14,9 +14,10 @@
 #'
 #' @examples
 #' sepals_and_petals("Sepal.Length", "Petal.Length")
-#' sepals_and_petals("Petal.Length", "Sepal.Length")
-#'
+#' # Code
+#' sepals_and_petals
 sepals_and_petals <- function(x, y) {
   ggplot(datasets::iris, aes_string(x = x, y = y, color = "Species")) +
     geom_point()
 }
+
