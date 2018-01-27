@@ -1,18 +1,60 @@
 ---
 title: "Appifyr Input Types"
+output: 
+  html_document: 
+    toc: yes
+    toc_float: true
 ---
 
-Welcome to Sepals and Petals! This package's apps are built with [appifyr](github.com/retowyss/appifyr). 
+Appifyr offers three types of inputs: dropdown, text and number. All input types share the arguments `label` and `width`. The label will be displayed next to the input on the form. The width argument accepts values between 1 and 12 (it's using the bootstrap grid system). A value of 12 will make the input take an entire row. The default width is 4.
 
-```{r}
+```{r, echo=FALSE}
 library(appifyr)
-
-# Create inputs as dropdown
-dd <- inp_dropdown(names(iris)[1:4], width = 6)
-
-# "sepals_and_petals" is a function in this package
-appify(f = "sepals_and_petals", inps = list(x = dd, y = dd))
-
+library(stringr)
 ```
 
+
+# Text 
+
+The text input `inp_text` is the most basic type of input.
+
+```{r}
+appify("text_to_title", inps = list(plot_title = inp_text(width = 12)))
+```
+
+# Number
+
+You can use the number input `inp_number` type to restrict values to numbers.
+
+```{r}
+appify("number_to_sample", inps = list(n = inp_number(from = 0, to = 10e9)))
+```
+
+# Dropdown
+
+## Atomic Argument
+
+```{r}
+appify("dropdown_to_filter", 
+       inps = list(flower = inp_dropdown(unique(iris$Species))))
+```
+
+## List Argument
+
+```{r}
+flowers <- list(
+  Setosa = "setosa",
+  Versicolor = "versicolor",
+  Virginica = "virginica"
+)
+appify("dropdown_to_filter", inps = list(flower = inp_dropdown(flowers)))
+```
+
+## Data Frame Argument
+
+```{r, warning=FALSE}
+flowers <- data.frame(value = unique(iris$Species)) %>% 
+  mutate(key = str_to_title(value))
+appify("dropdown_to_filter", inps = list(flower = inp_dropdown(flowers)))
+```
 

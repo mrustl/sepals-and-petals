@@ -229,7 +229,7 @@ $(document).ready(function () {
 </div>
 
 
-<p>Welcome to Sepals and Petals! This package’s apps are built with <a href="github.com/retowyss/appifyr">appifyr</a>.</p>
+<p>Welcome to Sepals and Petals! This package’s apps are built with <a href="github.com/retowyss/appifyr">appifyr</a>. It demonstrates the basics of creating apps with appifyr.</p>
 <pre class="r"><code>library(appifyr)
 
 # Create inputs as dropdown
@@ -238,11 +238,11 @@ dd &lt;- inp_dropdown(names(iris)[1:4], width = 6)
 # &quot;sepals_and_petals&quot; is a function in this package
 appify(f = &quot;sepals_and_petals&quot;, inps = list(x = dd, y = dd))</code></pre>
 <div>
-<form id="form-AGkbCezUpdnNpuvravnDQYvmrziQaEKq" class="well">
+<form id="form-ditVmQQgSjGNlSCZhqIByTpnfazSpGvk" class="well">
 <fieldset class="row">
 <div class="col-sm-6">
 <label>x</label>
-<select id="x-AGkbCezUpdnNpuvravnDQYvmrziQaEKq" class="form-group form-control">
+<select id="x-ditVmQQgSjGNlSCZhqIByTpnfazSpGvk" class="form-group form-control">
 <option value="Sepal.Length">Sepal.Length</option>
 <option value="Sepal.Width">Sepal.Width</option>
 <option value="Petal.Length">Petal.Length</option>
@@ -251,7 +251,7 @@ appify(f = &quot;sepals_and_petals&quot;, inps = list(x = dd, y = dd))</code></p
 </div>
 <div class="col-sm-6">
 <label>y</label>
-<select id="y-AGkbCezUpdnNpuvravnDQYvmrziQaEKq" class="form-group form-control">
+<select id="y-ditVmQQgSjGNlSCZhqIByTpnfazSpGvk" class="form-group form-control">
 <option value="Sepal.Length">Sepal.Length</option>
 <option value="Sepal.Width">Sepal.Width</option>
 <option value="Petal.Length">Petal.Length</option>
@@ -259,18 +259,18 @@ appify(f = &quot;sepals_and_petals&quot;, inps = list(x = dd, y = dd))</code></p
 </select>
 </div>
 </fieldset>
-<button id="submit-AGkbCezUpdnNpuvravnDQYvmrziQaEKq" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-ditVmQQgSjGNlSCZhqIByTpnfazSpGvk" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-AGkbCezUpdnNpuvravnDQYvmrziQaEKq"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-AGkbCezUpdnNpuvravnDQYvmrziQaEKq").click(function(){
-  var req = $("#target-AGkbCezUpdnNpuvravnDQYvmrziQaEKq").rplot(
+<div style="height: 600px;" class="well" id="target-ditVmQQgSjGNlSCZhqIByTpnfazSpGvk"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-ditVmQQgSjGNlSCZhqIByTpnfazSpGvk").click(function(){
+  var req = $("#target-ditVmQQgSjGNlSCZhqIByTpnfazSpGvk").rplot(
     "sepals_and_petals",
     {x : (function(){
-  var x = $('#x-AGkbCezUpdnNpuvravnDQYvmrziQaEKq').val();
+  var x = $('#x-ditVmQQgSjGNlSCZhqIByTpnfazSpGvk').val();
   return(isNaN() ? x : parseFloat(x));
 })(),
 y : (function(){
-  var x = $('#y-AGkbCezUpdnNpuvravnDQYvmrziQaEKq').val();
+  var x = $('#y-ditVmQQgSjGNlSCZhqIByTpnfazSpGvk').val();
   return(isNaN() ? x : parseFloat(x));
 })()}
   );

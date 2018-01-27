@@ -12,7 +12,7 @@ appify(
   inps = list(
     dist_f = inp_dropdown(
       c("rnorm", "runif", "rcauchy"),
-      label = "Dist"
+      label = "Distribution Function"
     ), 
     ns = inp_number(label = "Sample Size"),
     theme = inp_dropdown(

@@ -13,4 +13,8 @@ Imports:
     rlang,
     stats,
     ggplot2
+Suggests:
+    testthat,
+    covr,
+    appifyr
 RoxygenNote: 6.0.1

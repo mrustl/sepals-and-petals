@@ -134,9 +134,10 @@
 #&gt;   set.seed(seed = seed)
 #&gt; 
 #&gt;   q &lt;- quo(
-#&gt;     data.frame(x = invoke(!! sym(dist_f), .args = list(n = !! ns))) %&gt;%
+#&gt;     data.frame(x = invoke(!! sym(dist_f),
+#&gt;                           .args = list(n = !! as.numeric(ns)))) %&gt;%
 #&gt;       ggplot(aes(x = x)) +
-#&gt;       geom_histogram(bins = !! bins) +
+#&gt;       geom_histogram(bins = !! as.numeric(bins)) +
 #&gt;       invoke(!! sym(theme))
 #&gt;   )
 #&gt; 

@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -166,6 +169,101 @@ $(document).ready(function () {
 
 
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
 
 
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
@@ -229,48 +327,27 @@ $(document).ready(function () {
 </div>
 
 
-<p>Welcome to Sepals and Petals! This package’s apps are built with <a href="github.com/retowyss/appifyr">appifyr</a>.</p>
-<pre class="r"><code>library(appifyr)
-
-# Create inputs as dropdown
-dd &lt;- inp_dropdown(names(iris)[1:4], width = 6)
-
-# &quot;sepals_and_petals&quot; is a function in this package
-appify(f = &quot;sepals_and_petals&quot;, inps = list(x = dd, y = dd))</code></pre>
+<p>Appifyr offers three types of inputs: dropdown, text and number. All input types share the arguments <code>label</code> and <code>width</code>. The label will be displayed next to the input on the form. The width argument accepts values between 1 and 12 (it’s using the bootstrap grid system). A value of 12 will make the input take an entire row. The default width is 4.</p>
+<div id="text" class="section level1">
+<h1>Text</h1>
+<p>The text input <code>inp_text</code> is the most basic type of input.</p>
+<pre class="r"><code>appify(&quot;text_to_title&quot;, inps = list(plot_title = inp_text(width = 12)))</code></pre>
 <div>
-<form id="form-vlWEZdNecztNXwdLzJtJmGGAXhCPMCJG" class="well">
+<form id="form-nYbzLwVPtUZRriwzQFNFRxGXYtybjyef" class="well">
 <fieldset class="row">
-<div class="col-sm-6">
-<label>x</label>
-<select id="x-vlWEZdNecztNXwdLzJtJmGGAXhCPMCJG" class="form-group form-control">
-<option value="Sepal.Length">Sepal.Length</option>
-<option value="Sepal.Width">Sepal.Width</option>
-<option value="Petal.Length">Petal.Length</option>
-<option value="Petal.Width">Petal.Width</option>
-</select>
-</div>
-<div class="col-sm-6">
-<label>y</label>
-<select id="y-vlWEZdNecztNXwdLzJtJmGGAXhCPMCJG" class="form-group form-control">
-<option value="Sepal.Length">Sepal.Length</option>
-<option value="Sepal.Width">Sepal.Width</option>
-<option value="Petal.Length">Petal.Length</option>
-<option value="Petal.Width">Petal.Width</option>
-</select>
+<div class="col-sm-12">
+<label>plot_title</label>
+<input id="plot_title-nYbzLwVPtUZRriwzQFNFRxGXYtybjyef" class="form-control" type="text"/>
 </div>
 </fieldset>
-<button id="submit-vlWEZdNecztNXwdLzJtJmGGAXhCPMCJG" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-nYbzLwVPtUZRriwzQFNFRxGXYtybjyef" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-vlWEZdNecztNXwdLzJtJmGGAXhCPMCJG"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-vlWEZdNecztNXwdLzJtJmGGAXhCPMCJG").click(function(){
-  var req = $("#target-vlWEZdNecztNXwdLzJtJmGGAXhCPMCJG").rplot(
-    "sepals_and_petals",
-    {x : (function(){
-  var x = $('#x-vlWEZdNecztNXwdLzJtJmGGAXhCPMCJG').val();
-  return(isNaN() ? x : parseFloat(x));
-})(),
-y : (function(){
-  var x = $('#y-vlWEZdNecztNXwdLzJtJmGGAXhCPMCJG').val();
+<div style="height: 600px;" class="well" id="target-nYbzLwVPtUZRriwzQFNFRxGXYtybjyef"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-nYbzLwVPtUZRriwzQFNFRxGXYtybjyef").click(function(){
+  var req = $("#target-nYbzLwVPtUZRriwzQFNFRxGXYtybjyef").rplot(
+    "text_to_title",
+    {plot_title : (function(){
+  var x = $('#plot_title-nYbzLwVPtUZRriwzQFNFRxGXYtybjyef').val();
   return(isNaN() ? x : parseFloat(x));
 })()}
   );
@@ -278,6 +355,143 @@ y : (function(){
     alert("Error: " + req.responseText);
   });
 });</script>
+</div>
+</div>
+<div id="number" class="section level1">
+<h1>Number</h1>
+<p>You can use the number input <code>inp_number</code> type to restrict values to numbers.</p>
+<pre class="r"><code>appify(&quot;number_to_sample&quot;, inps = list(n = inp_number(from = 0, to = 10e9)))</code></pre>
+<div>
+<form id="form-HkssuNSMNbnOAfSefyYrtsGaJWhqqwwm" class="well">
+<fieldset class="row">
+<div class="col-sm-4">
+<label>n</label>
+<input id="n-HkssuNSMNbnOAfSefyYrtsGaJWhqqwwm" class="form-control" type="number" min="0" max="1e+10"/>
+</div>
+</fieldset>
+<button id="submit-HkssuNSMNbnOAfSefyYrtsGaJWhqqwwm" class="btn btn-primary" type="button">Submit</button>
+</form>
+<div style="height: 600px;" class="well" id="target-HkssuNSMNbnOAfSefyYrtsGaJWhqqwwm"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-HkssuNSMNbnOAfSefyYrtsGaJWhqqwwm").click(function(){
+  var req = $("#target-HkssuNSMNbnOAfSefyYrtsGaJWhqqwwm").rplot(
+    "number_to_sample",
+    {n : (function(){
+  var x = $('#n-HkssuNSMNbnOAfSefyYrtsGaJWhqqwwm').val();
+  return(isNaN() ? x : parseFloat(x));
+})()}
+  );
+  req.fail(function(){
+    alert("Error: " + req.responseText);
+  });
+});</script>
+</div>
+</div>
+<div id="dropdown" class="section level1">
+<h1>Dropdown</h1>
+<div id="atomic-argument" class="section level2">
+<h2>Atomic Argument</h2>
+<pre class="r"><code>appify(&quot;dropdown_to_filter&quot;, 
+       inps = list(flower = inp_dropdown(unique(iris$Species))))</code></pre>
+<div>
+<form id="form-ELgqLSFNzFzfyWSdxwvTBqmgFoDgjDLh" class="well">
+<fieldset class="row">
+<div class="col-sm-4">
+<label>flower</label>
+<select id="flower-ELgqLSFNzFzfyWSdxwvTBqmgFoDgjDLh" class="form-group form-control">
+<option value="setosa">setosa</option>
+<option value="versicolor">versicolor</option>
+<option value="virginica">virginica</option>
+</select>
+</div>
+</fieldset>
+<button id="submit-ELgqLSFNzFzfyWSdxwvTBqmgFoDgjDLh" class="btn btn-primary" type="button">Submit</button>
+</form>
+<div style="height: 600px;" class="well" id="target-ELgqLSFNzFzfyWSdxwvTBqmgFoDgjDLh"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-ELgqLSFNzFzfyWSdxwvTBqmgFoDgjDLh").click(function(){
+  var req = $("#target-ELgqLSFNzFzfyWSdxwvTBqmgFoDgjDLh").rplot(
+    "dropdown_to_filter",
+    {flower : (function(){
+  var x = $('#flower-ELgqLSFNzFzfyWSdxwvTBqmgFoDgjDLh').val();
+  return(isNaN() ? x : parseFloat(x));
+})()}
+  );
+  req.fail(function(){
+    alert("Error: " + req.responseText);
+  });
+});</script>
+</div>
+</div>
+<div id="list-argument" class="section level2">
+<h2>List Argument</h2>
+<pre class="r"><code>flowers &lt;- list(
+  Setosa = &quot;setosa&quot;,
+  Versicolor = &quot;versicolor&quot;,
+  Virginica = &quot;virginica&quot;
+)
+appify(&quot;dropdown_to_filter&quot;, inps = list(flower = inp_dropdown(flowers)))</code></pre>
+<div>
+<form id="form-BtYpYVQIeVPcpkkUHGmGMlyEEoOuBGMU" class="well">
+<fieldset class="row">
+<div class="col-sm-4">
+<label>flower</label>
+<select id="flower-BtYpYVQIeVPcpkkUHGmGMlyEEoOuBGMU" class="form-group form-control">
+<option value="setosa">Setosa</option>
+<option value="versicolor">Versicolor</option>
+<option value="virginica">Virginica</option>
+</select>
+</div>
+</fieldset>
+<button id="submit-BtYpYVQIeVPcpkkUHGmGMlyEEoOuBGMU" class="btn btn-primary" type="button">Submit</button>
+</form>
+<div style="height: 600px;" class="well" id="target-BtYpYVQIeVPcpkkUHGmGMlyEEoOuBGMU"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-BtYpYVQIeVPcpkkUHGmGMlyEEoOuBGMU").click(function(){
+  var req = $("#target-BtYpYVQIeVPcpkkUHGmGMlyEEoOuBGMU").rplot(
+    "dropdown_to_filter",
+    {flower : (function(){
+  var x = $('#flower-BtYpYVQIeVPcpkkUHGmGMlyEEoOuBGMU').val();
+  return(isNaN() ? x : parseFloat(x));
+})()}
+  );
+  req.fail(function(){
+    alert("Error: " + req.responseText);
+  });
+});</script>
+</div>
+</div>
+<div id="data-frame-argument" class="section level2">
+<h2>Data Frame Argument</h2>
+<pre class="r"><code>flowers &lt;- data.frame(value = unique(iris$Species)) %&gt;% 
+  mutate(key = str_to_title(value))
+appify(&quot;dropdown_to_filter&quot;, inps = list(flower = inp_dropdown(flowers)))</code></pre>
+<div>
+<form id="form-CoeMjxWTVHEaowpGIIRkJVMUVZEjlOGC" class="well">
+<fieldset class="row">
+<div class="col-sm-4">
+<label>flower</label>
+<select id="flower-CoeMjxWTVHEaowpGIIRkJVMUVZEjlOGC" class="form-group form-control">
+<option value="setosa">Setosa</option>
+<option value="versicolor">Versicolor</option>
+<option value="virginica">Virginica</option>
+</select>
+</div>
+</fieldset>
+<button id="submit-CoeMjxWTVHEaowpGIIRkJVMUVZEjlOGC" class="btn btn-primary" type="button">Submit</button>
+</form>
+<div style="height: 600px;" class="well" id="target-CoeMjxWTVHEaowpGIIRkJVMUVZEjlOGC"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-CoeMjxWTVHEaowpGIIRkJVMUVZEjlOGC").click(function(){
+  var req = $("#target-CoeMjxWTVHEaowpGIIRkJVMUVZEjlOGC").rplot(
+    "dropdown_to_filter",
+    {flower : (function(){
+  var x = $('#flower-CoeMjxWTVHEaowpGIIRkJVMUVZEjlOGC').val();
+  return(isNaN() ? x : parseFloat(x));
+})()}
+  );
+  req.fail(function(){
+    alert("Error: " + req.responseText);
+  });
+});</script>
+</div>
+</div>
 </div>
 
 <div class="appifyr-footer">
@@ -289,6 +503,8 @@ y : (function(){
 <script src="js/opencpu-0.4.js"></script>
 
 
+</div>
+</div>
 
 </div>
 
