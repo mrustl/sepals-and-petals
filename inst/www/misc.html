@@ -229,48 +229,82 @@ $(document).ready(function () {
 </div>
 
 
-<p>Welcome to Sepals and Petals! This package’s apps are built with <a href="github.com/retowyss/appifyr">appifyr</a>.</p>
+<p>The function I’m showing here uses NSE.</p>
 <pre class="r"><code>library(appifyr)
 
-# Create inputs as dropdown
-dd &lt;- inp_dropdown(names(iris)[1:4], width = 6)
-
-# &quot;sepals_and_petals&quot; is a function in this package
-appify(f = &quot;sepals_and_petals&quot;, inps = list(x = dd, y = dd))</code></pre>
+appify(
+  f = &quot;dist_hist&quot;, 
+  inps = list(
+    dist_f = inp_dropdown(
+      c(&quot;rnorm&quot;, &quot;runif&quot;, &quot;rcauchy&quot;),
+      label = &quot;Dist&quot;
+    ), 
+    ns = inp_number(label = &quot;Sample Size&quot;),
+    theme = inp_dropdown(
+      c(&quot;theme_bw&quot;, &quot;theme_classic&quot;, &quot;theme_minimal&quot;, &quot;theme_light&quot;),
+      label = &quot;ggplot Theme&quot;
+    ),
+    bins = inp_number(from = 0, to = 42, label = &quot;Bins&quot;),
+    seed = inp_number(label = &quot;Seed&quot;)
+  )
+)</code></pre>
 <div>
-<form id="form-ohCRdadCThmldkBRqBBoeLMVFmQkyWKq" class="well">
+<form id="form-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj" class="well">
 <fieldset class="row">
-<div class="col-sm-6">
-<label>x</label>
-<select id="x-ohCRdadCThmldkBRqBBoeLMVFmQkyWKq" class="form-group form-control">
-<option value="Sepal.Length">Sepal.Length</option>
-<option value="Sepal.Width">Sepal.Width</option>
-<option value="Petal.Length">Petal.Length</option>
-<option value="Petal.Width">Petal.Width</option>
+<div class="col-sm-4">
+<label>Dist</label>
+<select id="dist_f-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj" class="form-group form-control">
+<option value="rnorm">rnorm</option>
+<option value="runif">runif</option>
+<option value="rcauchy">rcauchy</option>
 </select>
 </div>
-<div class="col-sm-6">
-<label>y</label>
-<select id="y-ohCRdadCThmldkBRqBBoeLMVFmQkyWKq" class="form-group form-control">
-<option value="Sepal.Length">Sepal.Length</option>
-<option value="Sepal.Width">Sepal.Width</option>
-<option value="Petal.Length">Petal.Length</option>
-<option value="Petal.Width">Petal.Width</option>
+<div class="col-sm-4">
+<label>Sample Size</label>
+<input id="ns-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj" class="form-control" type="number" min="0" max="100"/>
+</div>
+<div class="col-sm-4">
+<label>ggplot Theme</label>
+<select id="theme-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj" class="form-group form-control">
+<option value="theme_bw">theme_bw</option>
+<option value="theme_classic">theme_classic</option>
+<option value="theme_minimal">theme_minimal</option>
+<option value="theme_light">theme_light</option>
 </select>
+</div>
+<div class="col-sm-4">
+<label>Bins</label>
+<input id="bins-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj" class="form-control" type="number" min="0" max="42"/>
+</div>
+<div class="col-sm-4">
+<label>Seed</label>
+<input id="seed-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj" class="form-control" type="number" min="0" max="100"/>
 </div>
 </fieldset>
-<button id="submit-ohCRdadCThmldkBRqBBoeLMVFmQkyWKq" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-ohCRdadCThmldkBRqBBoeLMVFmQkyWKq"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-ohCRdadCThmldkBRqBBoeLMVFmQkyWKq").click(function(){
-  var req = $("#target-ohCRdadCThmldkBRqBBoeLMVFmQkyWKq").rplot(
-    "sepals_and_petals",
-    {x : (function(){
-  var x = $('#x-ohCRdadCThmldkBRqBBoeLMVFmQkyWKq').val();
+<div style="height: 600px;" class="well" id="target-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj").click(function(){
+  var req = $("#target-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj").rplot(
+    "dist_hist",
+    {dist_f : (function(){
+  var x = $('#dist_f-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj').val();
   return(isNaN() ? x : parseFloat(x));
 })(),
-y : (function(){
-  var x = $('#y-ohCRdadCThmldkBRqBBoeLMVFmQkyWKq').val();
+ns : (function(){
+  var x = $('#ns-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj').val();
+  return(isNaN() ? x : parseFloat(x));
+})(),
+theme : (function(){
+  var x = $('#theme-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj').val();
+  return(isNaN() ? x : parseFloat(x));
+})(),
+bins : (function(){
+  var x = $('#bins-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj').val();
+  return(isNaN() ? x : parseFloat(x));
+})(),
+seed : (function(){
+  var x = $('#seed-MDJGHuGfoDhEATJAQCbsVBoMChiXosUj').val();
   return(isNaN() ? x : parseFloat(x));
 })()}
   );

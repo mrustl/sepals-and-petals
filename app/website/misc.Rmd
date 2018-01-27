@@ -2,16 +2,27 @@
 title: "Misc"
 ---
 
-Welcome to Sepals and Petals! This package's apps are built with [appifyr](github.com/retowyss/appifyr). 
+The function I'm showing here uses NSE. 
 
 ```{r}
 library(appifyr)
 
-# Create inputs as dropdown
-dd <- inp_dropdown(names(iris)[1:4], width = 6)
-
-# "sepals_and_petals" is a function in this package
-appify(f = "sepals_and_petals", inps = list(x = dd, y = dd))
+appify(
+  f = "dist_hist", 
+  inps = list(
+    dist_f = inp_dropdown(
+      c("rnorm", "runif", "rcauchy"),
+      label = "Dist"
+    ), 
+    ns = inp_number(label = "Sample Size"),
+    theme = inp_dropdown(
+      c("theme_bw", "theme_classic", "theme_minimal", "theme_light"),
+      label = "ggplot Theme"
+    ),
+    bins = inp_number(from = 0, to = 42, label = "Bins"),
+    seed = inp_number(label = "Seed")
+  )
+)
 
 ```
 

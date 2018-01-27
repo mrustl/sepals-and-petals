@@ -8,5 +8,9 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
+    datasets,
+    magrittr,
+    rlang,
+    stats,
     ggplot2
 RoxygenNote: 6.0.1

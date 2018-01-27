@@ -3,7 +3,7 @@
 #' @description This function uses non standard evaluation (NSE) to create a
 #'     plot title.
 #'
-#' @param dist_f a quoted distribution function: rnorm, runif, rpois, rcauchy
+#' @param dist_f a quoted distribution function: rnorm, runif or rcauchy
 #' @param ns how many numbers should be generated?
 #' @param theme a quoted ggplot theme to be used
 #' @param bins how many bins should be used in the histogram?
@@ -25,7 +25,7 @@ dist_hist <- function(dist_f,
                       theme = "theme_minimal",
                       bins = 30,
                       seed = 42) {
-  dist_fs <- c("rnorm", "runif", "rpois", "rcauchy")
+  dist_fs <- c("rnorm", "runif", "rcauchy")
   themes <- c("theme_bw", "theme_classic", "theme_minimal", "theme_light")
 
   stopifnot(dist_f %in% dist_fs & theme %in% themes)

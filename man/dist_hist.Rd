@@ -8,7 +8,7 @@ dist_hist(dist_f, ns = 1000, theme = "theme_minimal", bins = 30,
   seed = 42)
 }
 \arguments{
-\item{dist_f}{a quoted distribution function: rnorm, runif, rpois, rcauchy}
+\item{dist_f}{a quoted distribution function: rnorm, runif or rcauchy}
 
 \item{ns}{how many numbers should be generated?}
 

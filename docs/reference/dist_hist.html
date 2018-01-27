@@ -93,7 +93,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>dist_f</th>
-      <td><p>a quoted distribution function: rnorm, runif, rpois, rcauchy</p></td>
+      <td><p>a quoted distribution function: rnorm, runif or rcauchy</p></td>
     </tr>
     <tr>
       <th>ns</th>
@@ -126,7 +126,7 @@
 #&gt;                       theme = "theme_minimal",
 #&gt;                       bins = 30,
 #&gt;                       seed = 42) {
-#&gt;   dist_fs &lt;- c("rnorm", "runif", "rpois", "rcauchy")
+#&gt;   dist_fs &lt;- c("rnorm", "runif", "rcauchy")
 #&gt;   themes &lt;- c("theme_bw", "theme_classic", "theme_minimal", "theme_light")
 #&gt; 
 #&gt;   stopifnot(dist_f %in% dist_fs &amp; theme %in% themes)
