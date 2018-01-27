@@ -9,6 +9,18 @@ navbar:
       href: input_types.html
     - text: "Misc"
       href: misc.html
+  right:
+    - text: Github
+      icon: fa-github fa-lg
+      menu:
+        - text: Appifyr Repo
+          href: https://github.com/retowyss/appifyr
+        - text: Appifyr Documentation
+          href: https://retowyss.github.io/appifyr
+        - text: Sepals and Petals Repo
+          href: https://github.com/retowyss/sepals-and-petals
+        - text: Sepals and Petals Documentation
+          href: https://retowyss.github.io/sepals-and-petals
 
 output:
   html_document:

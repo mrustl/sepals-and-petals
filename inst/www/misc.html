@@ -22,6 +22,7 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -190,7 +191,29 @@ $(document).ready(function () {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-github fa-lg"></span>
+     
+    Github
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="https://github.com/retowyss/appifyr">Appifyr Repo</a>
+    </li>
+    <li>
+      <a href="https://retowyss.github.io/appifyr">Appifyr Documentation</a>
+    </li>
+    <li>
+      <a href="https://github.com/retowyss/sepals-and-petals">Sepals and Petals Repo</a>
+    </li>
+    <li>
+      <a href="https://retowyss.github.io/sepals-and-petals">Sepals and Petals Documentation</a>
+    </li>
+  </ul>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -215,11 +238,11 @@ dd &lt;- inp_dropdown(names(iris)[1:4], width = 6)
 # &quot;sepals_and_petals&quot; is a function in this package
 appify(f = &quot;sepals_and_petals&quot;, inps = list(x = dd, y = dd))</code></pre>
 <div>
-<form id="form-MmEGsNQzAvVWrbKsuEFgoDQgwFMOqBVe" class="well">
+<form id="form-ohCRdadCThmldkBRqBBoeLMVFmQkyWKq" class="well">
 <fieldset class="row">
 <div class="col-sm-6">
 <label>x</label>
-<select id="x-MmEGsNQzAvVWrbKsuEFgoDQgwFMOqBVe" class="form-group form-control">
+<select id="x-ohCRdadCThmldkBRqBBoeLMVFmQkyWKq" class="form-group form-control">
 <option value="Sepal.Length">Sepal.Length</option>
 <option value="Sepal.Width">Sepal.Width</option>
 <option value="Petal.Length">Petal.Length</option>
@@ -228,7 +251,7 @@ appify(f = &quot;sepals_and_petals&quot;, inps = list(x = dd, y = dd))</code></p
 </div>
 <div class="col-sm-6">
 <label>y</label>
-<select id="y-MmEGsNQzAvVWrbKsuEFgoDQgwFMOqBVe" class="form-group form-control">
+<select id="y-ohCRdadCThmldkBRqBBoeLMVFmQkyWKq" class="form-group form-control">
 <option value="Sepal.Length">Sepal.Length</option>
 <option value="Sepal.Width">Sepal.Width</option>
 <option value="Petal.Length">Petal.Length</option>
@@ -236,18 +259,18 @@ appify(f = &quot;sepals_and_petals&quot;, inps = list(x = dd, y = dd))</code></p
 </select>
 </div>
 </fieldset>
-<button id="submit-MmEGsNQzAvVWrbKsuEFgoDQgwFMOqBVe" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-ohCRdadCThmldkBRqBBoeLMVFmQkyWKq" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-MmEGsNQzAvVWrbKsuEFgoDQgwFMOqBVe"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-MmEGsNQzAvVWrbKsuEFgoDQgwFMOqBVe").click(function(){
-  var req = $("#target-MmEGsNQzAvVWrbKsuEFgoDQgwFMOqBVe").rplot(
+<div style="height: 600px;" class="well" id="target-ohCRdadCThmldkBRqBBoeLMVFmQkyWKq"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-ohCRdadCThmldkBRqBBoeLMVFmQkyWKq").click(function(){
+  var req = $("#target-ohCRdadCThmldkBRqBBoeLMVFmQkyWKq").rplot(
     "sepals_and_petals",
     {x : (function(){
-  var x = $('#x-MmEGsNQzAvVWrbKsuEFgoDQgwFMOqBVe').val();
+  var x = $('#x-ohCRdadCThmldkBRqBBoeLMVFmQkyWKq').val();
   return(isNaN() ? x : parseFloat(x));
 })(),
 y : (function(){
-  var x = $('#y-MmEGsNQzAvVWrbKsuEFgoDQgwFMOqBVe').val();
+  var x = $('#y-ohCRdadCThmldkBRqBBoeLMVFmQkyWKq').val();
   return(isNaN() ? x : parseFloat(x));
 })()}
   );
