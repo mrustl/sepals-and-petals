@@ -32,7 +32,11 @@ appify("number_to_sample", inps = list(n = inp_number(from = 0, to = 10e9)))
 
 # Dropdown
 
+Appifyr's function `inp_dropdown` accepts atomics, lists and datafarmes as arguments. Intrnally, appifyr always converts to a dataframe.
+
 ## Atomic Argument
+
+When given a vector as the first argument both the keys will be equal to the values passed to the function.
 
 ```{r}
 appify("dropdown_to_filter", 
@@ -40,6 +44,8 @@ appify("dropdown_to_filter",
 ```
 
 ## List Argument
+
+A list should be used when one deals with a fairly small number of levels and needs specific names for those. The format is intuitive: `list(key1 = "value1", key2 = "value2")`.
 
 ```{r}
 flowers <- list(
@@ -51,6 +57,8 @@ appify("dropdown_to_filter", inps = list(flower = inp_dropdown(flowers)))
 ```
 
 ## Data Frame Argument
+
+The dataframe argument needs a specific format. There must be exactly two columns `key` and `value`. This type of passing the levels is most useful when one wants to programatically create a large number of levels.
 
 ```{r, warning=FALSE}
 flowers <- data.frame(value = unique(iris$Species)) %>% 
