@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -166,6 +169,101 @@ $(document).ready(function () {
 
 
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
 
 
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
@@ -229,7 +327,9 @@ $(document).ready(function () {
 </div>
 
 
-<p>The function I’m showing here uses NSE.</p>
+<div id="plot-title-via-nse" class="section level1">
+<h1>Plot title via NSE</h1>
+<p>This function is demonstrating a combination of input types. It also uses non standard evaluation (NSE) to return working code in the plot’s title.</p>
 <pre class="r"><code>library(appifyr)
 
 appify(
@@ -249,11 +349,11 @@ appify(
   )
 )</code></pre>
 <div>
-<form id="form-FjpmLlxHLksJwtGWsmMHVPPvxfGccRMx" class="well">
+<form id="form-UELuPikEittqPkqAmKgWXmOhkDjqyAVI" class="well">
 <fieldset class="row">
 <div class="col-sm-4">
 <label>Distribution Function</label>
-<select id="dist_f-FjpmLlxHLksJwtGWsmMHVPPvxfGccRMx" class="form-group form-control">
+<select id="dist_f-UELuPikEittqPkqAmKgWXmOhkDjqyAVI" class="form-group form-control">
 <option value="rnorm">rnorm</option>
 <option value="runif">runif</option>
 <option value="rcauchy">rcauchy</option>
@@ -261,11 +361,11 @@ appify(
 </div>
 <div class="col-sm-4">
 <label>Sample Size</label>
-<input id="ns-FjpmLlxHLksJwtGWsmMHVPPvxfGccRMx" class="form-control" type="number" min="0" max="100"/>
+<input id="ns-UELuPikEittqPkqAmKgWXmOhkDjqyAVI" class="form-control" type="number" min="0" max="100"/>
 </div>
 <div class="col-sm-4">
 <label>ggplot Theme</label>
-<select id="theme-FjpmLlxHLksJwtGWsmMHVPPvxfGccRMx" class="form-group form-control">
+<select id="theme-UELuPikEittqPkqAmKgWXmOhkDjqyAVI" class="form-group form-control">
 <option value="theme_bw">theme_bw</option>
 <option value="theme_classic">theme_classic</option>
 <option value="theme_minimal">theme_minimal</option>
@@ -274,37 +374,37 @@ appify(
 </div>
 <div class="col-sm-4">
 <label>Bins</label>
-<input id="bins-FjpmLlxHLksJwtGWsmMHVPPvxfGccRMx" class="form-control" type="number" min="0" max="42"/>
+<input id="bins-UELuPikEittqPkqAmKgWXmOhkDjqyAVI" class="form-control" type="number" min="0" max="42"/>
 </div>
 <div class="col-sm-4">
 <label>Seed</label>
-<input id="seed-FjpmLlxHLksJwtGWsmMHVPPvxfGccRMx" class="form-control" type="number" min="0" max="100"/>
+<input id="seed-UELuPikEittqPkqAmKgWXmOhkDjqyAVI" class="form-control" type="number" min="0" max="100"/>
 </div>
 </fieldset>
-<button id="submit-FjpmLlxHLksJwtGWsmMHVPPvxfGccRMx" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-UELuPikEittqPkqAmKgWXmOhkDjqyAVI" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-FjpmLlxHLksJwtGWsmMHVPPvxfGccRMx"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-FjpmLlxHLksJwtGWsmMHVPPvxfGccRMx").click(function(){
-  var req = $("#target-FjpmLlxHLksJwtGWsmMHVPPvxfGccRMx").rplot(
+<div style="height: 600px;" class="well" id="target-UELuPikEittqPkqAmKgWXmOhkDjqyAVI"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-UELuPikEittqPkqAmKgWXmOhkDjqyAVI").click(function(){
+  var req = $("#target-UELuPikEittqPkqAmKgWXmOhkDjqyAVI").rplot(
     "dist_hist",
     {dist_f : (function(){
-  var x = $('#dist_f-FjpmLlxHLksJwtGWsmMHVPPvxfGccRMx').val();
+  var x = $('#dist_f-UELuPikEittqPkqAmKgWXmOhkDjqyAVI').val();
   return(isNaN() ? x : parseFloat(x));
 })(),
 ns : (function(){
-  var x = $('#ns-FjpmLlxHLksJwtGWsmMHVPPvxfGccRMx').val();
+  var x = $('#ns-UELuPikEittqPkqAmKgWXmOhkDjqyAVI').val();
   return(isNaN() ? x : parseFloat(x));
 })(),
 theme : (function(){
-  var x = $('#theme-FjpmLlxHLksJwtGWsmMHVPPvxfGccRMx').val();
+  var x = $('#theme-UELuPikEittqPkqAmKgWXmOhkDjqyAVI').val();
   return(isNaN() ? x : parseFloat(x));
 })(),
 bins : (function(){
-  var x = $('#bins-FjpmLlxHLksJwtGWsmMHVPPvxfGccRMx').val();
+  var x = $('#bins-UELuPikEittqPkqAmKgWXmOhkDjqyAVI').val();
   return(isNaN() ? x : parseFloat(x));
 })(),
 seed : (function(){
-  var x = $('#seed-FjpmLlxHLksJwtGWsmMHVPPvxfGccRMx').val();
+  var x = $('#seed-UELuPikEittqPkqAmKgWXmOhkDjqyAVI').val();
   return(isNaN() ? x : parseFloat(x));
 })()}
   );
@@ -312,6 +412,10 @@ seed : (function(){
     alert("Error: " + req.responseText);
   });
 });</script>
+</div>
+</div>
+<div id="section" class="section level1">
+<h1></h1>
 </div>
 
 <div class="appifyr-footer">
@@ -323,6 +427,8 @@ seed : (function(){
 <script src="js/opencpu-0.4.js"></script>
 
 
+</div>
+</div>
 
 </div>
 

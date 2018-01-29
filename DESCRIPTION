@@ -1,9 +1,9 @@
 Package: SepalsAndPetals
 Type: Package
-Title: Showcase appifyr
+Title: Sepals and Petals
 Version: 42.0.0
 Authors@R: person("Reto", "Wyss", role = c("aut", "cre"), email = "reto.wyss.ch@gmail.com")
-Description: This packages showcases the appifyr package.
+Description: Sepals and Petals showcases the appifyr package.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

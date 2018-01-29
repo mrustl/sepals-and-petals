@@ -2,7 +2,9 @@
 title: "Sepals and Petals"
 ---
 
-Welcome to Sepals and Petals! This package's apps are built with [appifyr](github.com/retowyss/appifyr). It demonstrates the basics of creating apps with appifyr. 
+Welcome to Sepals and Petals! 
+
+This package's apps are built with [appifyr](github.com/retowyss/appifyr) and it demonstrates the basics of creating apps with appifyr. 
 
 ```{r}
 library(appifyr)

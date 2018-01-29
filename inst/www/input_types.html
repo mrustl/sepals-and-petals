@@ -327,27 +327,29 @@ div.tocify {
 </div>
 
 
-<p>Appifyr offers three types of inputs: dropdown, text and number. All input types share the arguments <code>label</code> and <code>width</code>. The label will be displayed next to the input on the form. The width argument accepts values between 1 and 12 (it’s using the bootstrap grid system). A value of 12 will make the input take an entire row. The default width is 4.</p>
+<p>Appifyr offers three types of inputs: dropdown, text and number.</p>
+<p>All input types share the arguments <code>label</code> and <code>width</code>. The label will be displayed next to the input on the form. The width argument accepts integer values between 1 and 12 (it’s using the bootstrap grid system). A value of 12 will make the input take an entire row. The default width is 4.</p>
+<p>The <code>inps</code> argument takes a list where every element is named corresponding to one of the arguments to your function. So, for a function <code>my_function(x, y)</code> you must specify both <code>x</code> and <code>y</code> in the list, e.g. <code>list(x = inp_text(), y = inp_text())</code>. The names must match exactly. Note that it is possible to pass anything to <code>...</code>.</p>
 <div id="text" class="section level1">
 <h1>Text</h1>
 <p>The text input <code>inp_text</code> is the most basic type of input.</p>
 <pre class="r"><code>appify(&quot;text_to_title&quot;, inps = list(plot_title = inp_text(width = 12)))</code></pre>
 <div>
-<form id="form-QyRpRLOySHRgkfWFUeWmNJTAPAXSrmGk" class="well">
+<form id="form-HFEFfdZALEzIjidgPvjyuMpOahEnaMNc" class="well">
 <fieldset class="row">
 <div class="col-sm-12">
 <label>plot_title</label>
-<input id="plot_title-QyRpRLOySHRgkfWFUeWmNJTAPAXSrmGk" class="form-control" type="text"/>
+<input id="plot_title-HFEFfdZALEzIjidgPvjyuMpOahEnaMNc" class="form-control" type="text"/>
 </div>
 </fieldset>
-<button id="submit-QyRpRLOySHRgkfWFUeWmNJTAPAXSrmGk" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-HFEFfdZALEzIjidgPvjyuMpOahEnaMNc" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-QyRpRLOySHRgkfWFUeWmNJTAPAXSrmGk"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-QyRpRLOySHRgkfWFUeWmNJTAPAXSrmGk").click(function(){
-  var req = $("#target-QyRpRLOySHRgkfWFUeWmNJTAPAXSrmGk").rplot(
+<div style="height: 600px;" class="well" id="target-HFEFfdZALEzIjidgPvjyuMpOahEnaMNc"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-HFEFfdZALEzIjidgPvjyuMpOahEnaMNc").click(function(){
+  var req = $("#target-HFEFfdZALEzIjidgPvjyuMpOahEnaMNc").rplot(
     "text_to_title",
     {plot_title : (function(){
-  var x = $('#plot_title-QyRpRLOySHRgkfWFUeWmNJTAPAXSrmGk').val();
+  var x = $('#plot_title-HFEFfdZALEzIjidgPvjyuMpOahEnaMNc').val();
   return(isNaN() ? x : parseFloat(x));
 })()}
   );
@@ -362,21 +364,21 @@ div.tocify {
 <p>You can use the number input <code>inp_number</code> type to restrict values to numbers.</p>
 <pre class="r"><code>appify(&quot;number_to_sample&quot;, inps = list(n = inp_number(from = 0, to = 10e9)))</code></pre>
 <div>
-<form id="form-XOtxeAbmMEkrBQvxdzMjcDRQvBOAjwNb" class="well">
+<form id="form-VBGReAQnKjuSAxSOupQVZSFiaOpueERj" class="well">
 <fieldset class="row">
 <div class="col-sm-4">
 <label>n</label>
-<input id="n-XOtxeAbmMEkrBQvxdzMjcDRQvBOAjwNb" class="form-control" type="number" min="0" max="1e+10"/>
+<input id="n-VBGReAQnKjuSAxSOupQVZSFiaOpueERj" class="form-control" type="number" min="0" max="1e+10"/>
 </div>
 </fieldset>
-<button id="submit-XOtxeAbmMEkrBQvxdzMjcDRQvBOAjwNb" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-VBGReAQnKjuSAxSOupQVZSFiaOpueERj" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-XOtxeAbmMEkrBQvxdzMjcDRQvBOAjwNb"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-XOtxeAbmMEkrBQvxdzMjcDRQvBOAjwNb").click(function(){
-  var req = $("#target-XOtxeAbmMEkrBQvxdzMjcDRQvBOAjwNb").rplot(
+<div style="height: 600px;" class="well" id="target-VBGReAQnKjuSAxSOupQVZSFiaOpueERj"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-VBGReAQnKjuSAxSOupQVZSFiaOpueERj").click(function(){
+  var req = $("#target-VBGReAQnKjuSAxSOupQVZSFiaOpueERj").rplot(
     "number_to_sample",
     {n : (function(){
-  var x = $('#n-XOtxeAbmMEkrBQvxdzMjcDRQvBOAjwNb').val();
+  var x = $('#n-VBGReAQnKjuSAxSOupQVZSFiaOpueERj').val();
   return(isNaN() ? x : parseFloat(x));
 })()}
   );
@@ -391,29 +393,29 @@ div.tocify {
 <p>Appifyr’s function <code>inp_dropdown</code> accepts atomics, lists and datafarmes as arguments. Intrnally, appifyr always converts to a dataframe.</p>
 <div id="atomic-argument" class="section level2">
 <h2>Atomic Argument</h2>
-<p>When given a vector as the first argument both the keys will be equal to the values passed to the function.</p>
+<p>When given a vector as the first argument the keys will be equal to the values passed to the function.</p>
 <pre class="r"><code>appify(&quot;dropdown_to_filter&quot;, 
        inps = list(flower = inp_dropdown(unique(iris$Species))))</code></pre>
 <div>
-<form id="form-DDyNAKxSGfePyVPzoiipzmZjwSbLrvdK" class="well">
+<form id="form-YfIcxnNyBZYmtcEIBUofZeFFVGOOYcNA" class="well">
 <fieldset class="row">
 <div class="col-sm-4">
 <label>flower</label>
-<select id="flower-DDyNAKxSGfePyVPzoiipzmZjwSbLrvdK" class="form-group form-control">
+<select id="flower-YfIcxnNyBZYmtcEIBUofZeFFVGOOYcNA" class="form-group form-control">
 <option value="setosa">setosa</option>
 <option value="versicolor">versicolor</option>
 <option value="virginica">virginica</option>
 </select>
 </div>
 </fieldset>
-<button id="submit-DDyNAKxSGfePyVPzoiipzmZjwSbLrvdK" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-YfIcxnNyBZYmtcEIBUofZeFFVGOOYcNA" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-DDyNAKxSGfePyVPzoiipzmZjwSbLrvdK"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-DDyNAKxSGfePyVPzoiipzmZjwSbLrvdK").click(function(){
-  var req = $("#target-DDyNAKxSGfePyVPzoiipzmZjwSbLrvdK").rplot(
+<div style="height: 600px;" class="well" id="target-YfIcxnNyBZYmtcEIBUofZeFFVGOOYcNA"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-YfIcxnNyBZYmtcEIBUofZeFFVGOOYcNA").click(function(){
+  var req = $("#target-YfIcxnNyBZYmtcEIBUofZeFFVGOOYcNA").rplot(
     "dropdown_to_filter",
     {flower : (function(){
-  var x = $('#flower-DDyNAKxSGfePyVPzoiipzmZjwSbLrvdK').val();
+  var x = $('#flower-YfIcxnNyBZYmtcEIBUofZeFFVGOOYcNA').val();
   return(isNaN() ? x : parseFloat(x));
 })()}
   );
@@ -433,25 +435,25 @@ div.tocify {
 )
 appify(&quot;dropdown_to_filter&quot;, inps = list(flower = inp_dropdown(flowers)))</code></pre>
 <div>
-<form id="form-cWrXyTMvHMhoJufBjMwnqgJqABnFrPQs" class="well">
+<form id="form-kJuOKJZZHwskuALdMwLuzphYnwFSQwZC" class="well">
 <fieldset class="row">
 <div class="col-sm-4">
 <label>flower</label>
-<select id="flower-cWrXyTMvHMhoJufBjMwnqgJqABnFrPQs" class="form-group form-control">
+<select id="flower-kJuOKJZZHwskuALdMwLuzphYnwFSQwZC" class="form-group form-control">
 <option value="setosa">Setosa</option>
 <option value="versicolor">Versicolor</option>
 <option value="virginica">Virginica</option>
 </select>
 </div>
 </fieldset>
-<button id="submit-cWrXyTMvHMhoJufBjMwnqgJqABnFrPQs" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-kJuOKJZZHwskuALdMwLuzphYnwFSQwZC" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-cWrXyTMvHMhoJufBjMwnqgJqABnFrPQs"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-cWrXyTMvHMhoJufBjMwnqgJqABnFrPQs").click(function(){
-  var req = $("#target-cWrXyTMvHMhoJufBjMwnqgJqABnFrPQs").rplot(
+<div style="height: 600px;" class="well" id="target-kJuOKJZZHwskuALdMwLuzphYnwFSQwZC"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-kJuOKJZZHwskuALdMwLuzphYnwFSQwZC").click(function(){
+  var req = $("#target-kJuOKJZZHwskuALdMwLuzphYnwFSQwZC").rplot(
     "dropdown_to_filter",
     {flower : (function(){
-  var x = $('#flower-cWrXyTMvHMhoJufBjMwnqgJqABnFrPQs').val();
+  var x = $('#flower-kJuOKJZZHwskuALdMwLuzphYnwFSQwZC').val();
   return(isNaN() ? x : parseFloat(x));
 })()}
   );
@@ -463,30 +465,30 @@ appify(&quot;dropdown_to_filter&quot;, inps = list(flower = inp_dropdown(flowers
 </div>
 <div id="data-frame-argument" class="section level2">
 <h2>Data Frame Argument</h2>
-<p>The dataframe argument needs a specific format. There must be exactly two columns <code>key</code> and <code>value</code>. This type of passing the levels is most useful when one wants to programatically create a large number of levels.</p>
+<p>The dataframe argument needs a specific format. There must be exactly two columns <code>key</code> and <code>value</code>. This type of passing the levels is most useful when one wants to create a large number of levels.</p>
 <pre class="r"><code>flowers &lt;- data.frame(value = unique(iris$Species)) %&gt;% 
   mutate(key = str_to_title(value))
 appify(&quot;dropdown_to_filter&quot;, inps = list(flower = inp_dropdown(flowers)))</code></pre>
 <div>
-<form id="form-mptyHwRjdOaCVzZqlQXQKeTiXGzGyONo" class="well">
+<form id="form-mKUSVQwmUVtzhQdsevyoZjGQBEfWSJPn" class="well">
 <fieldset class="row">
 <div class="col-sm-4">
 <label>flower</label>
-<select id="flower-mptyHwRjdOaCVzZqlQXQKeTiXGzGyONo" class="form-group form-control">
+<select id="flower-mKUSVQwmUVtzhQdsevyoZjGQBEfWSJPn" class="form-group form-control">
 <option value="setosa">Setosa</option>
 <option value="versicolor">Versicolor</option>
 <option value="virginica">Virginica</option>
 </select>
 </div>
 </fieldset>
-<button id="submit-mptyHwRjdOaCVzZqlQXQKeTiXGzGyONo" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-mKUSVQwmUVtzhQdsevyoZjGQBEfWSJPn" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-mptyHwRjdOaCVzZqlQXQKeTiXGzGyONo"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-mptyHwRjdOaCVzZqlQXQKeTiXGzGyONo").click(function(){
-  var req = $("#target-mptyHwRjdOaCVzZqlQXQKeTiXGzGyONo").rplot(
+<div style="height: 600px;" class="well" id="target-mKUSVQwmUVtzhQdsevyoZjGQBEfWSJPn"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-mKUSVQwmUVtzhQdsevyoZjGQBEfWSJPn").click(function(){
+  var req = $("#target-mKUSVQwmUVtzhQdsevyoZjGQBEfWSJPn").rplot(
     "dropdown_to_filter",
     {flower : (function(){
-  var x = $('#flower-mptyHwRjdOaCVzZqlQXQKeTiXGzGyONo').val();
+  var x = $('#flower-mKUSVQwmUVtzhQdsevyoZjGQBEfWSJPn').val();
   return(isNaN() ? x : parseFloat(x));
 })()}
   );

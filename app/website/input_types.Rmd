@@ -6,7 +6,11 @@ output:
     toc_float: true
 ---
 
-Appifyr offers three types of inputs: dropdown, text and number. All input types share the arguments `label` and `width`. The label will be displayed next to the input on the form. The width argument accepts values between 1 and 12 (it's using the bootstrap grid system). A value of 12 will make the input take an entire row. The default width is 4.
+Appifyr offers three types of inputs: dropdown, text and number. 
+
+All input types share the arguments `label` and `width`. The label will be displayed next to the input on the form. The width argument accepts integer values between 1 and 12 (it's using the bootstrap grid system). A value of 12 will make the input take an entire row. The default width is 4.
+
+The `inps` argument takes a list where every element is named corresponding to one of the arguments to your function. So, for a function `my_function(x, y)` you must specify both `x` and `y` in the list, e.g. `list(x = inp_text(), y = inp_text())`. The names must match exactly. Note that it is possible to pass anything to `...`.  
 
 ```{r, echo=FALSE}
 library(appifyr)
@@ -36,7 +40,7 @@ Appifyr's function `inp_dropdown` accepts atomics, lists and datafarmes as argum
 
 ## Atomic Argument
 
-When given a vector as the first argument both the keys will be equal to the values passed to the function.
+When given a vector as the first argument the keys will be equal to the values passed to the function.
 
 ```{r}
 appify("dropdown_to_filter", 
@@ -58,7 +62,7 @@ appify("dropdown_to_filter", inps = list(flower = inp_dropdown(flowers)))
 
 ## Data Frame Argument
 
-The dataframe argument needs a specific format. There must be exactly two columns `key` and `value`. This type of passing the levels is most useful when one wants to programatically create a large number of levels.
+The dataframe argument needs a specific format. There must be exactly two columns `key` and `value`. This type of passing the levels is most useful when one wants to create a large number of levels.
 
 ```{r, warning=FALSE}
 flowers <- data.frame(value = unique(iris$Species)) %>% 

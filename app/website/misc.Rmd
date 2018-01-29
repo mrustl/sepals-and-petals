@@ -1,8 +1,14 @@
 ---
 title: "Misc"
+output: 
+  html_document: 
+    toc: yes
+    toc_float: true
 ---
 
-The function I'm showing here uses NSE. 
+# Plot title via NSE 
+
+This function is demonstrating a combination of input types. It also uses non standard evaluation (NSE) to return working code in the plot's title.
 
 ```{r}
 library(appifyr)
@@ -23,7 +29,7 @@ appify(
     seed = inp_number(label = "Seed")
   )
 )
-
 ```
 
 
+#   
