@@ -335,21 +335,21 @@ div.tocify {
 <p>The text input <code>inp_text</code> is the most basic type of input.</p>
 <pre class="r"><code>appify(&quot;text_to_title&quot;, inps = list(plot_title = inp_text(width = 12)))</code></pre>
 <div>
-<form id="form-HFEFfdZALEzIjidgPvjyuMpOahEnaMNc" class="well">
+<form id="form-eTdUPlUpSpZJogrXzfjCmiiQubTSltIL" class="well">
 <fieldset class="row">
 <div class="col-sm-12">
 <label>plot_title</label>
-<input id="plot_title-HFEFfdZALEzIjidgPvjyuMpOahEnaMNc" class="form-control" type="text"/>
+<input id="plot_title-eTdUPlUpSpZJogrXzfjCmiiQubTSltIL" class="form-control" type="text"/>
 </div>
 </fieldset>
-<button id="submit-HFEFfdZALEzIjidgPvjyuMpOahEnaMNc" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-eTdUPlUpSpZJogrXzfjCmiiQubTSltIL" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-HFEFfdZALEzIjidgPvjyuMpOahEnaMNc"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-HFEFfdZALEzIjidgPvjyuMpOahEnaMNc").click(function(){
-  var req = $("#target-HFEFfdZALEzIjidgPvjyuMpOahEnaMNc").rplot(
+<div style="height: 600px;" class="well" id="target-eTdUPlUpSpZJogrXzfjCmiiQubTSltIL"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-eTdUPlUpSpZJogrXzfjCmiiQubTSltIL").click(function(){
+  var req = $("#target-eTdUPlUpSpZJogrXzfjCmiiQubTSltIL").rplot(
     "text_to_title",
     {plot_title : (function(){
-  var x = $('#plot_title-HFEFfdZALEzIjidgPvjyuMpOahEnaMNc').val();
+  var x = $('#plot_title-eTdUPlUpSpZJogrXzfjCmiiQubTSltIL').val();
   return(isNaN() ? x : parseFloat(x));
 })()}
   );
@@ -364,21 +364,21 @@ div.tocify {
 <p>You can use the number input <code>inp_number</code> type to restrict values to numbers.</p>
 <pre class="r"><code>appify(&quot;number_to_sample&quot;, inps = list(n = inp_number(from = 0, to = 10e9)))</code></pre>
 <div>
-<form id="form-VBGReAQnKjuSAxSOupQVZSFiaOpueERj" class="well">
+<form id="form-dOfpqhYKrhFmydfOYBZuhyASVVwyUXzQ" class="well">
 <fieldset class="row">
 <div class="col-sm-4">
 <label>n</label>
-<input id="n-VBGReAQnKjuSAxSOupQVZSFiaOpueERj" class="form-control" type="number" min="0" max="1e+10"/>
+<input id="n-dOfpqhYKrhFmydfOYBZuhyASVVwyUXzQ" class="form-control" type="number" min="0" max="1e+10"/>
 </div>
 </fieldset>
-<button id="submit-VBGReAQnKjuSAxSOupQVZSFiaOpueERj" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-dOfpqhYKrhFmydfOYBZuhyASVVwyUXzQ" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-VBGReAQnKjuSAxSOupQVZSFiaOpueERj"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-VBGReAQnKjuSAxSOupQVZSFiaOpueERj").click(function(){
-  var req = $("#target-VBGReAQnKjuSAxSOupQVZSFiaOpueERj").rplot(
+<div style="height: 600px;" class="well" id="target-dOfpqhYKrhFmydfOYBZuhyASVVwyUXzQ"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-dOfpqhYKrhFmydfOYBZuhyASVVwyUXzQ").click(function(){
+  var req = $("#target-dOfpqhYKrhFmydfOYBZuhyASVVwyUXzQ").rplot(
     "number_to_sample",
     {n : (function(){
-  var x = $('#n-VBGReAQnKjuSAxSOupQVZSFiaOpueERj').val();
+  var x = $('#n-dOfpqhYKrhFmydfOYBZuhyASVVwyUXzQ').val();
   return(isNaN() ? x : parseFloat(x));
 })()}
   );
@@ -397,25 +397,25 @@ div.tocify {
 <pre class="r"><code>appify(&quot;dropdown_to_filter&quot;, 
        inps = list(flower = inp_dropdown(unique(iris$Species))))</code></pre>
 <div>
-<form id="form-YfIcxnNyBZYmtcEIBUofZeFFVGOOYcNA" class="well">
+<form id="form-GwSwwRreXXbxJAPOHmAihnnUjoyziEDn" class="well">
 <fieldset class="row">
 <div class="col-sm-4">
 <label>flower</label>
-<select id="flower-YfIcxnNyBZYmtcEIBUofZeFFVGOOYcNA" class="form-group form-control">
+<select id="flower-GwSwwRreXXbxJAPOHmAihnnUjoyziEDn" class="form-group form-control">
 <option value="setosa">setosa</option>
 <option value="versicolor">versicolor</option>
 <option value="virginica">virginica</option>
 </select>
 </div>
 </fieldset>
-<button id="submit-YfIcxnNyBZYmtcEIBUofZeFFVGOOYcNA" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-GwSwwRreXXbxJAPOHmAihnnUjoyziEDn" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-YfIcxnNyBZYmtcEIBUofZeFFVGOOYcNA"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-YfIcxnNyBZYmtcEIBUofZeFFVGOOYcNA").click(function(){
-  var req = $("#target-YfIcxnNyBZYmtcEIBUofZeFFVGOOYcNA").rplot(
+<div style="height: 600px;" class="well" id="target-GwSwwRreXXbxJAPOHmAihnnUjoyziEDn"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-GwSwwRreXXbxJAPOHmAihnnUjoyziEDn").click(function(){
+  var req = $("#target-GwSwwRreXXbxJAPOHmAihnnUjoyziEDn").rplot(
     "dropdown_to_filter",
     {flower : (function(){
-  var x = $('#flower-YfIcxnNyBZYmtcEIBUofZeFFVGOOYcNA').val();
+  var x = $('#flower-GwSwwRreXXbxJAPOHmAihnnUjoyziEDn').val();
   return(isNaN() ? x : parseFloat(x));
 })()}
   );
@@ -435,25 +435,25 @@ div.tocify {
 )
 appify(&quot;dropdown_to_filter&quot;, inps = list(flower = inp_dropdown(flowers)))</code></pre>
 <div>
-<form id="form-kJuOKJZZHwskuALdMwLuzphYnwFSQwZC" class="well">
+<form id="form-KejSLCxkmBxpmqwgOTULSQIusZAPaMdA" class="well">
 <fieldset class="row">
 <div class="col-sm-4">
 <label>flower</label>
-<select id="flower-kJuOKJZZHwskuALdMwLuzphYnwFSQwZC" class="form-group form-control">
+<select id="flower-KejSLCxkmBxpmqwgOTULSQIusZAPaMdA" class="form-group form-control">
 <option value="setosa">Setosa</option>
 <option value="versicolor">Versicolor</option>
 <option value="virginica">Virginica</option>
 </select>
 </div>
 </fieldset>
-<button id="submit-kJuOKJZZHwskuALdMwLuzphYnwFSQwZC" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-KejSLCxkmBxpmqwgOTULSQIusZAPaMdA" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-kJuOKJZZHwskuALdMwLuzphYnwFSQwZC"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-kJuOKJZZHwskuALdMwLuzphYnwFSQwZC").click(function(){
-  var req = $("#target-kJuOKJZZHwskuALdMwLuzphYnwFSQwZC").rplot(
+<div style="height: 600px;" class="well" id="target-KejSLCxkmBxpmqwgOTULSQIusZAPaMdA"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-KejSLCxkmBxpmqwgOTULSQIusZAPaMdA").click(function(){
+  var req = $("#target-KejSLCxkmBxpmqwgOTULSQIusZAPaMdA").rplot(
     "dropdown_to_filter",
     {flower : (function(){
-  var x = $('#flower-kJuOKJZZHwskuALdMwLuzphYnwFSQwZC').val();
+  var x = $('#flower-KejSLCxkmBxpmqwgOTULSQIusZAPaMdA').val();
   return(isNaN() ? x : parseFloat(x));
 })()}
   );
@@ -470,25 +470,25 @@ appify(&quot;dropdown_to_filter&quot;, inps = list(flower = inp_dropdown(flowers
   mutate(key = str_to_title(value))
 appify(&quot;dropdown_to_filter&quot;, inps = list(flower = inp_dropdown(flowers)))</code></pre>
 <div>
-<form id="form-mKUSVQwmUVtzhQdsevyoZjGQBEfWSJPn" class="well">
+<form id="form-cEksxttWKrhQYVqEocnsZONigEJhWunC" class="well">
 <fieldset class="row">
 <div class="col-sm-4">
 <label>flower</label>
-<select id="flower-mKUSVQwmUVtzhQdsevyoZjGQBEfWSJPn" class="form-group form-control">
+<select id="flower-cEksxttWKrhQYVqEocnsZONigEJhWunC" class="form-group form-control">
 <option value="setosa">Setosa</option>
 <option value="versicolor">Versicolor</option>
 <option value="virginica">Virginica</option>
 </select>
 </div>
 </fieldset>
-<button id="submit-mKUSVQwmUVtzhQdsevyoZjGQBEfWSJPn" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-cEksxttWKrhQYVqEocnsZONigEJhWunC" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-mKUSVQwmUVtzhQdsevyoZjGQBEfWSJPn"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-mKUSVQwmUVtzhQdsevyoZjGQBEfWSJPn").click(function(){
-  var req = $("#target-mKUSVQwmUVtzhQdsevyoZjGQBEfWSJPn").rplot(
+<div style="height: 600px;" class="well" id="target-cEksxttWKrhQYVqEocnsZONigEJhWunC"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-cEksxttWKrhQYVqEocnsZONigEJhWunC").click(function(){
+  var req = $("#target-cEksxttWKrhQYVqEocnsZONigEJhWunC").rplot(
     "dropdown_to_filter",
     {flower : (function(){
-  var x = $('#flower-mKUSVQwmUVtzhQdsevyoZjGQBEfWSJPn').val();
+  var x = $('#flower-cEksxttWKrhQYVqEocnsZONigEJhWunC').val();
   return(isNaN() ? x : parseFloat(x));
 })()}
   );
