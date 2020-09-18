@@ -6,7 +6,8 @@ authors:
 
 template:
   params:
-    bootswatch: united
+    bootswatch: paper
+    ganalytics: UA-105579105-3
 
 navbar:
   right:
