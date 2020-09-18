@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -25,7 +25,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -73,11 +74,9 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="css/app_styles.css" type="text/css" />
+<link rel="stylesheet" href="css\app_styles.css" type="text/css" />
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -91,13 +90,18 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -113,7 +117,6 @@ body {
   padding-top: 56px;
   margin-top: -56px;
 }
-
 .section h2 {
   padding-top: 56px;
   margin-top: -56px;
@@ -133,6 +136,43 @@ body {
 .section h6 {
   padding-top: 56px;
   margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -154,47 +194,66 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
-
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -208,6 +267,12 @@ $(document).ready(function ()  {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -243,8 +308,6 @@ div.tocify {
 
 .tocify-subheader .tocify-item {
   font-size: 0.90em;
-  padding-left: 25px;
-  text-indent: 0;
 }
 
 .tocify .list-group-item {
@@ -253,6 +316,16 @@ div.tocify {
 
 
 </style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
 <div class="row-fluid">
@@ -327,36 +400,38 @@ div.tocify {
 </div>
 
 
-<p>Appifyr offers three types of inputs: dropdown, text and number.</p>
+<p>Appifyr offers three types of inputs: dropdown, text and number. Test</p>
 <p>All input types share the arguments <code>label</code> and <code>width</code>. The label will be displayed next to the input on the form. The width argument accepts integer values between 1 and 12 (it’s using the bootstrap grid system). A value of 12 will make the input take an entire row. The default width is 4.</p>
-<p>The <code>inps</code> argument takes a list where every element is named corresponding to one of the arguments to your function. So, for a function <code>my_function(x, y)</code> you must specify both <code>x</code> and <code>y</code> in the list, e.g. <code>list(x = inp_text(), y = inp_text())</code>. The names must match exactly. Note that it is possible to pass anything to <code>...</code>.</p>
+<p>The <code>inps</code> argument takes a list where every element is named corresponding to one of the arguments to your function. So, for a function <code>my_function(x, y)</code> you must specify both <code>x</code> and <code>y</code> in the list, e.g. <code>list(x = inp_text(), y = inp_text())</code>. The names must match exactly. Note that it is possible to pass anything to <code>...</code>.</p>
 <div id="text" class="section level1">
 <h1>Text</h1>
 <p>The text input <code>inp_text</code> is the most basic type of input.</p>
 <pre class="r"><code>appify(&quot;text_to_title&quot;, inps = list(plot_title = inp_text(width = 12)))</code></pre>
 <div>
-<form id="form-eTdUPlUpSpZJogrXzfjCmiiQubTSltIL" class="well">
+<form id="form-aJJKJuhwEPpYXrFkzaSlxXlPcIqIJTwi" class="well">
 <fieldset class="row">
 <div class="col-sm-12">
 <label>plot_title</label>
-<input id="plot_title-eTdUPlUpSpZJogrXzfjCmiiQubTSltIL" class="form-control" type="text"/>
+<input id="plot_title-aJJKJuhwEPpYXrFkzaSlxXlPcIqIJTwi" class="form-control" type="text"/>
 </div>
 </fieldset>
-<button id="submit-eTdUPlUpSpZJogrXzfjCmiiQubTSltIL" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-aJJKJuhwEPpYXrFkzaSlxXlPcIqIJTwi" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-eTdUPlUpSpZJogrXzfjCmiiQubTSltIL"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-eTdUPlUpSpZJogrXzfjCmiiQubTSltIL").click(function(){
-  var req = $("#target-eTdUPlUpSpZJogrXzfjCmiiQubTSltIL").rplot(
+<div style="height: 600px;" class="well" id="target-aJJKJuhwEPpYXrFkzaSlxXlPcIqIJTwi"></div>
+<script type = "text/javascript">$("#submit-aJJKJuhwEPpYXrFkzaSlxXlPcIqIJTwi").click(function(){
+  var req = $("#target-aJJKJuhwEPpYXrFkzaSlxXlPcIqIJTwi").rplot(
     "text_to_title",
     {plot_title : (function(){
-  var x = $('#plot_title-eTdUPlUpSpZJogrXzfjCmiiQubTSltIL').val();
+  var x = $('#plot_title-aJJKJuhwEPpYXrFkzaSlxXlPcIqIJTwi').val();
   return(isNaN() ? x : parseFloat(x));
-})()}
+})()
+}
   );
   req.fail(function(){
     alert("Error: " + req.responseText);
   });
-});</script>
+});
+</script>
 </div>
 </div>
 <div id="number" class="section level1">
@@ -364,28 +439,30 @@ div.tocify {
 <p>You can use the number input <code>inp_number</code> type to restrict values to numbers.</p>
 <pre class="r"><code>appify(&quot;number_to_sample&quot;, inps = list(n = inp_number(from = 0, to = 10e9)))</code></pre>
 <div>
-<form id="form-dOfpqhYKrhFmydfOYBZuhyASVVwyUXzQ" class="well">
+<form id="form-UHCJxFdzfjMPiYyURFteOQXiyDPKWySZ" class="well">
 <fieldset class="row">
 <div class="col-sm-4">
 <label>n</label>
-<input id="n-dOfpqhYKrhFmydfOYBZuhyASVVwyUXzQ" class="form-control" type="number" min="0" max="1e+10"/>
+<input id="n-UHCJxFdzfjMPiYyURFteOQXiyDPKWySZ" class="form-control" type="number" min="0" max="1e+10"/>
 </div>
 </fieldset>
-<button id="submit-dOfpqhYKrhFmydfOYBZuhyASVVwyUXzQ" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-UHCJxFdzfjMPiYyURFteOQXiyDPKWySZ" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-dOfpqhYKrhFmydfOYBZuhyASVVwyUXzQ"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-dOfpqhYKrhFmydfOYBZuhyASVVwyUXzQ").click(function(){
-  var req = $("#target-dOfpqhYKrhFmydfOYBZuhyASVVwyUXzQ").rplot(
+<div style="height: 600px;" class="well" id="target-UHCJxFdzfjMPiYyURFteOQXiyDPKWySZ"></div>
+<script type = "text/javascript">$("#submit-UHCJxFdzfjMPiYyURFteOQXiyDPKWySZ").click(function(){
+  var req = $("#target-UHCJxFdzfjMPiYyURFteOQXiyDPKWySZ").rplot(
     "number_to_sample",
     {n : (function(){
-  var x = $('#n-dOfpqhYKrhFmydfOYBZuhyASVVwyUXzQ').val();
+  var x = $('#n-UHCJxFdzfjMPiYyURFteOQXiyDPKWySZ').val();
   return(isNaN() ? x : parseFloat(x));
-})()}
+})()
+}
   );
   req.fail(function(){
     alert("Error: " + req.responseText);
   });
-});</script>
+});
+</script>
 </div>
 </div>
 <div id="dropdown" class="section level1">
@@ -397,37 +474,39 @@ div.tocify {
 <pre class="r"><code>appify(&quot;dropdown_to_filter&quot;, 
        inps = list(flower = inp_dropdown(unique(iris$Species))))</code></pre>
 <div>
-<form id="form-GwSwwRreXXbxJAPOHmAihnnUjoyziEDn" class="well">
+<form id="form-MGniQpeFdGAuqIWYEDiSiryZabtoYkkz" class="well">
 <fieldset class="row">
 <div class="col-sm-4">
 <label>flower</label>
-<select id="flower-GwSwwRreXXbxJAPOHmAihnnUjoyziEDn" class="form-group form-control">
+<select id="flower-MGniQpeFdGAuqIWYEDiSiryZabtoYkkz" class="form-group form-control">
 <option value="setosa">setosa</option>
 <option value="versicolor">versicolor</option>
 <option value="virginica">virginica</option>
 </select>
 </div>
 </fieldset>
-<button id="submit-GwSwwRreXXbxJAPOHmAihnnUjoyziEDn" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-MGniQpeFdGAuqIWYEDiSiryZabtoYkkz" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-GwSwwRreXXbxJAPOHmAihnnUjoyziEDn"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-GwSwwRreXXbxJAPOHmAihnnUjoyziEDn").click(function(){
-  var req = $("#target-GwSwwRreXXbxJAPOHmAihnnUjoyziEDn").rplot(
+<div style="height: 600px;" class="well" id="target-MGniQpeFdGAuqIWYEDiSiryZabtoYkkz"></div>
+<script type = "text/javascript">$("#submit-MGniQpeFdGAuqIWYEDiSiryZabtoYkkz").click(function(){
+  var req = $("#target-MGniQpeFdGAuqIWYEDiSiryZabtoYkkz").rplot(
     "dropdown_to_filter",
     {flower : (function(){
-  var x = $('#flower-GwSwwRreXXbxJAPOHmAihnnUjoyziEDn').val();
+  var x = $('#flower-MGniQpeFdGAuqIWYEDiSiryZabtoYkkz').val();
   return(isNaN() ? x : parseFloat(x));
-})()}
+})()
+}
   );
   req.fail(function(){
     alert("Error: " + req.responseText);
   });
-});</script>
+});
+</script>
 </div>
 </div>
 <div id="list-argument" class="section level2">
 <h2>List Argument</h2>
-<p>A list should be used when one deals with a fairly small number of levels and needs specific names for those. The format is intuitive: <code>list(key1 = &quot;value1&quot;, key2 = &quot;value2&quot;)</code>.</p>
+<p>A list should be used when one deals with a fairly small number of levels and needs specific names for those. The format is intuitive: <code>list(key1 = "value1", key2 = "value2")</code>.</p>
 <pre class="r"><code>flowers &lt;- list(
   Setosa = &quot;setosa&quot;,
   Versicolor = &quot;versicolor&quot;,
@@ -435,32 +514,34 @@ div.tocify {
 )
 appify(&quot;dropdown_to_filter&quot;, inps = list(flower = inp_dropdown(flowers)))</code></pre>
 <div>
-<form id="form-KejSLCxkmBxpmqwgOTULSQIusZAPaMdA" class="well">
+<form id="form-hHCXHdbFnUFvUVYzosKGCdCyUIFWnPyc" class="well">
 <fieldset class="row">
 <div class="col-sm-4">
 <label>flower</label>
-<select id="flower-KejSLCxkmBxpmqwgOTULSQIusZAPaMdA" class="form-group form-control">
+<select id="flower-hHCXHdbFnUFvUVYzosKGCdCyUIFWnPyc" class="form-group form-control">
 <option value="setosa">Setosa</option>
 <option value="versicolor">Versicolor</option>
 <option value="virginica">Virginica</option>
 </select>
 </div>
 </fieldset>
-<button id="submit-KejSLCxkmBxpmqwgOTULSQIusZAPaMdA" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-hHCXHdbFnUFvUVYzosKGCdCyUIFWnPyc" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-KejSLCxkmBxpmqwgOTULSQIusZAPaMdA"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-KejSLCxkmBxpmqwgOTULSQIusZAPaMdA").click(function(){
-  var req = $("#target-KejSLCxkmBxpmqwgOTULSQIusZAPaMdA").rplot(
+<div style="height: 600px;" class="well" id="target-hHCXHdbFnUFvUVYzosKGCdCyUIFWnPyc"></div>
+<script type = "text/javascript">$("#submit-hHCXHdbFnUFvUVYzosKGCdCyUIFWnPyc").click(function(){
+  var req = $("#target-hHCXHdbFnUFvUVYzosKGCdCyUIFWnPyc").rplot(
     "dropdown_to_filter",
     {flower : (function(){
-  var x = $('#flower-KejSLCxkmBxpmqwgOTULSQIusZAPaMdA').val();
+  var x = $('#flower-hHCXHdbFnUFvUVYzosKGCdCyUIFWnPyc').val();
   return(isNaN() ? x : parseFloat(x));
-})()}
+})()
+}
   );
   req.fail(function(){
     alert("Error: " + req.responseText);
   });
-});</script>
+});
+</script>
 </div>
 </div>
 <div id="data-frame-argument" class="section level2">
@@ -470,32 +551,34 @@ appify(&quot;dropdown_to_filter&quot;, inps = list(flower = inp_dropdown(flowers
   mutate(key = str_to_title(value))
 appify(&quot;dropdown_to_filter&quot;, inps = list(flower = inp_dropdown(flowers)))</code></pre>
 <div>
-<form id="form-cEksxttWKrhQYVqEocnsZONigEJhWunC" class="well">
+<form id="form-idLxtyEJNTtTlPEMQCViDTOViVEFBptL" class="well">
 <fieldset class="row">
 <div class="col-sm-4">
 <label>flower</label>
-<select id="flower-cEksxttWKrhQYVqEocnsZONigEJhWunC" class="form-group form-control">
+<select id="flower-idLxtyEJNTtTlPEMQCViDTOViVEFBptL" class="form-group form-control">
 <option value="setosa">Setosa</option>
 <option value="versicolor">Versicolor</option>
 <option value="virginica">Virginica</option>
 </select>
 </div>
 </fieldset>
-<button id="submit-cEksxttWKrhQYVqEocnsZONigEJhWunC" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-idLxtyEJNTtTlPEMQCViDTOViVEFBptL" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target-cEksxttWKrhQYVqEocnsZONigEJhWunC"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-cEksxttWKrhQYVqEocnsZONigEJhWunC").click(function(){
-  var req = $("#target-cEksxttWKrhQYVqEocnsZONigEJhWunC").rplot(
+<div style="height: 600px;" class="well" id="target-idLxtyEJNTtTlPEMQCViDTOViVEFBptL"></div>
+<script type = "text/javascript">$("#submit-idLxtyEJNTtTlPEMQCViDTOViVEFBptL").click(function(){
+  var req = $("#target-idLxtyEJNTtTlPEMQCViDTOViVEFBptL").rplot(
     "dropdown_to_filter",
     {flower : (function(){
-  var x = $('#flower-cEksxttWKrhQYVqEocnsZONigEJhWunC').val();
+  var x = $('#flower-idLxtyEJNTtTlPEMQCViDTOViVEFBptL').val();
   return(isNaN() ? x : parseFloat(x));
-})()}
+})()
+}
   );
   req.fail(function(){
     alert("Error: " + req.responseText);
   });
-});</script>
+});
+</script>
 </div>
 </div>
 </div>
@@ -525,6 +608,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

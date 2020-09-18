@@ -6,7 +6,7 @@ output:
     toc_float: true
 ---
 
-Appifyr offers three types of inputs: dropdown, text and number. 
+Appifyr offers three types of inputs: dropdown, text and number. Test
 
 All input types share the arguments `label` and `width`. The label will be displayed next to the input on the form. The width argument accepts integer values between 1 and 12 (it's using the bootstrap grid system). A value of 12 will make the input take an entire row. The default width is 4.
 
