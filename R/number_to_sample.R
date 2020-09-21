@@ -10,5 +10,7 @@
 #' # Code
 #' number_to_sample
 number_to_sample <- function(n) {
-  hist(rnorm(n = n))
+  hist(rnorm(n = n),
+       main = sprintf("Histogram of rnorm(n = %d)", n),
+       xlab = "x")
 }
